@@ -1,0 +1,131 @@
+/*以下是遮罩样式*/
+.maskerDiv {
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	position: fixed;
+	background: #000;
+	opacity: .3;
+	filter: alpha(opacity = 30)
+}
+.hidden{
+	display:none;
+}
+.loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999997;
+	text-align: center;
+	writing-mode: tb-rl;
+	background: #fff;
+	opacity: .3;
+	filter: alpha(opacity = 30)
+}
+/*下面定义是为不支持CSS3的浏览器设计*/
+.loadingImgStatic {
+	border:0;
+	width: 0.7rem;
+	height: 0.7rem;
+	position: fixed;
+	z-index: 999999;
+	top: 50%;
+	left: 50%;
+	background: url("../image/sdMasker/loading.gif") center center no-repeat;
+	background-size: contain
+}
+/*下面定义是为CSS3浏览器设计*/
+.loadingImg {
+	width: 1.2rem;
+	height: 1.2rem;
+	position: fixed;
+	z-index: 999999;
+	top: 40%;
+	left: 50%;
+	background: url("../image/sdMasker/waitingLogo.png") center center no-repeat;
+	background-size: contain
+}
+.loadingImgCirclediv {
+	z-index: 999998;
+	width: 0.7rem;
+	height: 0.7rem;
+	margin: -0.15rem 0 0 -0.15rem;
+	background-image: url("../image/sdMasker/loading.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	-webkit-animation: spin 1.5s infinite linear;
+	animation: spin 1.5s infinite linear
+}
+
+@-webkit-keyframes spin { 
+	0%{
+		-webkit-transform: rotate(0deg)
+	}
+	100%{
+		-webkit-transform:rotate(359deg)
+	}
+}
+@keyframes spin { 
+	0%{
+		transform: rotate(0deg)
+	}
+	100%{
+		transform:rotate(359deg)
+	}
+}
+/*下面是另一个遮罩*/
+.loadingStatic{
+	border:0;
+	padding:0;
+	width: 0.5rem;
+	height: 0.4rem;
+	position: fixed;
+	z-index: 999999;
+	top: 50%;
+	left:50%;
+}
+.loadingStatic span{
+	margin:0 0.05rem;
+	display: inline-block;
+	width: 0.04rem;
+	height: 100%;
+	border-radius: 0.04rem;
+	background: #ff0000;
+	-webkit-animation: load 1s ease infinite;
+}
+@-webkit-keyframes load{
+	0%,100%{
+		height: 0.3rem;
+		background: #ff0000;
+	}
+	50%{
+		height: 0.7rem;
+		margin: -0.1rem 0.05rem;
+		background: #ffff00;
+	}
+}
+.loadingStatic span:nth-child(2){
+	-webkit-animation-delay:0.2s;
+}
+.loadingStatic span:nth-child(3){
+	-webkit-animation-delay:0.3s;
+}
+.loadingStatic span:nth-child(4){
+	-webkit-animation-delay:0.4s;
+}
+.loadingStatic span:nth-child(5){
+	-webkit-animation-delay:0.5s;
+}
+.loadingStatic span:nth-child(6){
+	-webkit-animation-delay:0.6s;
+}
+.loadingStatic span:nth-child(7){
+	-webkit-animation-delay:0.7s;
+}
+.loadingStatic span:nth-child(8){
+	-webkit-animation-delay:0.8s;
+}

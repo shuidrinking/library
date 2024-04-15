@@ -1,0 +1,41 @@
+﻿/*
+ * 图片全页尺寸放大器样式，与SDImageViewer.js配套使用
+ */
+.sdImageViewer-masker{
+	z-index: 6666;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	text-align:center;
+	background: #000000;
+	opacity: 0.2;
+}
+.sdImageViewer-bigImageContainner{
+	z-index: 6667;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	position: fixed;
+	background-color:transparent;/*透明*/
+	display:flex;
+}
+.sdImageViewer-bigImage{
+	display: block;
+	margin: auto;/*父级flex，自己水平垂直居中*/
+	max-width: calc(100% - 0.1rem);
+	max-height: calc(100vh - 0.2rem);
+	border: 0.01rem solid #9e9e9e;
+	border-radius:0.1rem;
+	animation-name: commonZoom;
+	animation-duration: 0.5s;
+	padding: 0.03rem;
+	background-color:#ffffff;
+}
+/**/
+@keyframes commonZoom {
+	0% {transform: scale(0.1)}
+	100% {transform: scale(1)}
+}

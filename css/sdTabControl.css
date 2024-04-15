@@ -1,0 +1,43 @@
+/*
+ * Tab切换样式，与sdTabControl.js配套使用
+ */
+ .sd_tab{
+	font-size:0;
+	margin:0;
+	padding:0;
+	border-bottom:0.01rem solid #60a1ef;
+	color:#494773;
+}
+.sd_tab>:nth-child(n){
+	min-width:2rem;
+	height:0.4rem;
+	line-height:0.4rem;
+	display:inline-block;
+	margin:0;
+	padding:0 0.1rem;
+	border-radius:0.03rem 0.03rem 0 0;
+	border:0.01rem solid #8fc4ff;
+	border-bottom:0;
+	text-align:center;
+	cursor:pointer;
+	margin-right:0.01rem;
+}
+.sd_tab_in{
+	background: -webkit-linear-gradient(-90deg, #e4fbfb, #81baff); /* webkit 5.1 - 6.0 0度表示从左到右*/
+	background: -o-linear-gradient(0, #81baff, #e4fbfb); /* opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(90deg, #81baff, #e4fbfb); /* mozila 3.6 - 15 */
+	background: linear-gradient(0, #81baff, #e4fbfb); /* 标准的语法 90度表示从左到右*/
+	text-shadow: -0.01rem 0.01rem 0.02rem #ffffff;
+	color: #141778;
+	font-weight: bold;
+}
+.sd_tab_out{
+	background-color:transparent;
+}
+.tabContentDiv{
+	text-align:left;
+	border:1px solid #d1e2ff;
+	line-height:0.3rem;
+	margin-top:0.05rem;
+	padding:0.05rem;
+}
