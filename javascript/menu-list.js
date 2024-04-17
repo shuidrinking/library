@@ -111,7 +111,10 @@ var menuList = [
 	{"menuCode":"mleb21","parentMenuCode":"mlinuxenvbuild","showText":"1.21、安装elasticsearch","url":"view/mlinuxenvbuild/elasticsearch.md"},
 	{"menuCode":"mleb22","parentMenuCode":"mlinuxenvbuild","showText":"1.22、安装svn","url":"view/mlinuxenvbuild/svn.md"},
 	{"menuCode":"mleb23","parentMenuCode":"mlinuxenvbuild","showText":"1.23、安装ftp服务器","url":"view/mlinuxenvbuild/classicftp.md"},
+	{"menuCode":"mleb24","parentMenuCode":"mlinuxenvbuild","showText":"1.24、安装nfs","url":"view/mlinuxenvbuild/nfs.md"},
+	{"menuCode":"mleb25","parentMenuCode":"mlinuxenvbuild","showText":"1.25、安装邮件系统三件套","url":"view/mlinuxenvbuild/mailsystem.md"},
+	{"menuCode":"mleb25","parentMenuCode":"mlinuxenvbuild","showText":"1.25、邮件系统整合mysql","url":"view/mlinuxenvbuild/mailsystem.md"},
 	
 	{"menuCode":"mprojectom","parentMenuCode":"mlinuxserver","showText":"2、项目运维","url":"#"},
-	{"menuCode":"mpom01","parentMenuCode":"mprojectom","showText":"2.1、jar压缩包","url":"view/mprojectom/jarupdate.md"},
+	{"menuCode":"mpom01","parentMenuCode":"mprojectom","showText":"2.1、jar归档包更新手法","url":"view/mprojectom/jarupdate.md"},
 ];
