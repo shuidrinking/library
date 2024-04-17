@@ -31,3 +31,16 @@ jar uvf xxxx.jar 单个文件在jar内的相对路径
 #更新jar里的两个class文件，这样写：
 jar -uvf xxxx.jar com/test/A.class com/test/B.class
 </pre>
+
+#### 3、直接编辑jar包内的配置文件
+
+**用vi可以直接编辑jar包内的配置文件，这是个很酷的事情**
+<pre class="prettyprint lang-s">
+vi xxxx.jar
+
+#类似用vi编辑单个文件的搜索方法一样，输入 /待编辑的文件名，回车，也可以时间文件搜索
+
+#编辑完成后，保存并退出的做法和编辑单个文件没区别：输入esc后，输入 :wq 回车
+
+#输入 :q 退出vi编辑器
+</pre>
