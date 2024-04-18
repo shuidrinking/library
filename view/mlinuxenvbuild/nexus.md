@@ -1,19 +1,26 @@
+<div class="mapInPage">
+<a href="#anchor1">1、安装nexus3</a><br/>
+<a href="#anchor2">2、使用本私库</a><br/>
+<a href="#anchor3">3、私库安全设置</a><br/>
+<a href="#anchor4">4、nexus控制台操作仓库记录</a><br/>
+</div>
+<label id="anchor1"></label>
+
 #### 1、安装nexus3
 
 **本文中版本号仅供参考，<a href="https://help.sonatype.com/en/download.html" target="_blank">去官网下载</a>**
 >1.1 下载nexus
 <pre class="prettyprint lang-s">
+#下载
 cd /usr/local
 wget https://download.sonatype.com/nexus/3/nexus-3.37.3-02-unix.tar.gz
-</pre>
->1.2 下载完成后释放压缩包
-<pre class="prettyprint lang-s">
+#下载完成解压
 cd /usr/local
 chmod +x ./nexus-3.29.2-02-unix.tar.gz
 tar -xzf ./nexus-3.29.2-02-unix.tar.gz -C /usr/local
 #解压后，查看/usr/local中是否新增两个文件夹：nexus-3.29.2-02和sonatype-work
 </pre>
->1.3 设置环境变量
+>1.2 设置环境变量
 <pre class="prettyprint lang-s">
 #在etc/profile文件尾部追加内容
 cat >> /etc/profile << EOF
@@ -31,25 +38,30 @@ service iptables restart
 #建立启动命令软链接
 ln -s /usr/local/nexus-3.29.2-02/bin/nexus /usr/local/bin
 </pre>
->1.4【该步骤可省略】修改nexus运行参数，包括最大内存等
+>1.3【该步骤可省略】设置nexus运行参数，包括最大内存等
 <pre class="prettyprint lang-s">
 vi /usr/local/nexus-3.29.2-02/bin/nexus.vmoptions
 </pre>
->1.5 【该步骤可省略】修改nexus服务器默认端口号，默认为8081
+>1.4 【该步骤可省略】设置nexus服务器默认端口号，默认为8081
 <pre class="prettyprint lang-s">
 vi /usr/local/nexus-3.29.2-02/etc/nexus-default.properties
 </pre>
->1.6 启动nexus，启动后需要等待启动完毕，比较慢
+>1.5 启动nexus，启动后需要等待启动完毕，比较慢
 <pre class="prettyprint lang-s">
 nexus run &
 </pre>
->1.7 查找控制台管理员的初始密码
+>1.6 登录控制台
 <pre class="prettyprint lang-s">
+#访问nexus控制台
+http://IP:8081
+
+#查找控制台管理员的初始密码
 more /usr/local/sonatype-work/nexus3/admin.password
 </pre>
->1.8 访问nexus控制台 : http://IP:8081
 
-#### 2、在maven中配置私库
+<label id="anchor2"></label>
+
+#### 2、使用本私库
 <pre class="prettyprint lang-s">
 &lt;mirror&gt;
   &lt;id>linuxNoteBook&lt;/id&gt;
@@ -58,6 +70,8 @@ more /usr/local/sonatype-work/nexus3/admin.password
   &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;        
 &lt;/mirror&gt;
 </pre>
+<label id="anchor3"></label>
+
 #### 3、私库安全设置
 >3.1 保证私服中的库不能被匿名下载
 <div>
@@ -78,6 +92,8 @@ Nexus默认的配置，允许匿名下载maven库中的包。需要将其禁止�
 	&lt;password&gt;my-lib-repo-reader&lt;/password&gt;
 &lt;/server&gt;
 </pre>
+<label id="anchor4"></label>
+
 #### 4、nexus控制台操作仓库记录
 >4.1 登录nexus控制台后，点击左上角齿轮状的按钮，进入设置页面
 >4.2 创建阿里云“代理仓库”

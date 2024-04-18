@@ -1,4 +1,12 @@
 
+<div class="mapInPage">
+<a href="#anchor1">1、NFS的用途</a><br/>
+<a href="#anchor2">2、搭建nfs服务器</a><br/>
+<a href="#anchor3">3、挂载其他nfs服务器</a><br/>
+</div>
+
+<label id="anchor1"></label>
+
 #### 1、NFS的用途
 1.系统级文件夹共享，客户机可以与本地硬盘无差别地使用nfs共享目录；
 
@@ -9,9 +17,9 @@
 4.方便部署非常快速，维护十分简单
 
 5.nfs底层通过rpc通信。
+<label id="anchor2"></label>
 
-
-#### 2、构造nfs服务器
+#### 2、搭建nfs服务器
 >2.1 检查安装rpcbind和nfs-server
 <pre class="prettyprint lang-s">
 #检查系统中是否已经安装，Fedora中默认会已经全部安装
@@ -58,6 +66,7 @@ iptables-save
 <pre class="prettyprint lang-s">
 showmount -e localhost
 </pre>
+<label id="anchor3"></label>
 
 #### 3、挂载其他nfs服务器共享的目录
 

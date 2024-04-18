@@ -1,6 +1,5 @@
 #### 1、安装svn
 >1.1 安装subversion
-* **客户端已经安装**
 <pre class="prettyprint lang-s">
 #检查是否已有安装
 rpm -qa subversion

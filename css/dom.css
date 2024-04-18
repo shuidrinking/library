@@ -51,17 +51,10 @@ blockquote{
 }
 a{
 	text-decoration: none;
-	color:#D12D2D;
+	color:#006da3;
 }
-a:hover {
-	color: #ffffff;
-	text-decoration: underline;
-	background-color:#FF9933;
-}
-a:active {
-	color: #ffffff;
-	text-decoration: underline;
-	background-color:#FF9933;
+a:hover{
+	color:#0087c6;
 }
 table tr td {
 	border-bottom: 1px dotted #f3f3f3;
@@ -880,4 +873,17 @@ tbody tr:hover td {
 	background-image: url(../image/icons/listx.png);
 	background-position: 0.1rem;
 	background-repeat: no-repeat;
+}
+.mapInPage{
+	position:fixed;
+	padding:0.1rem;
+	border-radius:0.05rem;
+	right:0.4rem;
+	top:1rem;
+	line-height:0.3rem;
+	background-color: #f6fafb;
+	border: 1px solid #a0beff;
+}
+.addspace{
+	padding-left:0.32rem;
 }

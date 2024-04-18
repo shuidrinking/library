@@ -1,12 +1,24 @@
+<div class="mapInPage">
+<a href="#anchor1">1、添加mysql分组和用户</a><br/>
+<a href="#anchor2">2、下载并解压</a><br/>
+<a href="#anchor3">3、创建目录和配置文件，分配权限</a><br/>
+<a href="#anchor4">4、执行安装</a><br/>
+<a href="#anchor5">5、测试启停</a><br/>
+<a href="#anchor6">6、添加服务软连接</a><br/>
+<a href="#anchor7">7、修改root密码，开放远程连接</a><br/>
+<a href="#anchor8">8、设置开机启动</a><br/>
+<a href="#anchor9">9、忘记密码怎么办</a><br/>
+</div>
+
 #### 安装mysql8
->1、添加mysql分组和用户
+>1、添加mysql分组和用户<label id="anchor1"></label>
 <pre class="prettyprint lang-s">
 #切换到root，添加分组和用户
 groupadd mysql
 useradd -r -g mysql mysql
 </pre>
 	
->2、下载并解压
+>2、下载并解压<label id="anchor2"></label>
 <pre class="prettyprint lang-s">
 #在下载网站上选择相应的版本，OS选择Linux-Generic，例如下面这版
 wget wget https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.36-linux-glibc2.28-x86_64.tar.xz
@@ -16,7 +28,7 @@ tar -xf ./mysql-8.0.36-linux-glibc2.28-x86_64.tar.xz
 mv ./mysql-8.0.36-linux-glibc2.28-x86_64 /usr/local/mysql
 #注意，直接用/usr/local/mysql文件夹，不给mysql文件夹添加版本号等信息，原因是mysql.server这个shell里写死了
 </pre>
->3、创建目录及配置文件，分配所有权给mysql用户
+>3、创建目录及配置文件，分配所有权给mysql用户<label id="anchor3"></label>
 <pre class="prettyprint lang-s">
 mkdir /usr/local/mysql/data
 chown -R mysql:mysql /usr/local/mysql
@@ -85,7 +97,7 @@ expire_logs_days=7
 #max_binlog_size = 100M
 </pre>
 
->4、执行安装命令，并获得root密码
+>4、执行安装命令，并获得root密码<label id="anchor4"></label>
 <pre class="prettyprint lang-s">
 #执行安装命令
 /usr/local/mysql/bin/mysqld --initialize --user=mysql --datadir=/usr/local/mysql/data --basedir=/usr/local/mysql
@@ -95,7 +107,7 @@ tail -f /usr/local/mysql/mysql.log
 （例如：[Note] A temporary password is generated for root@localhost: ,rRyVd5jvgy2）
 </pre>
 
->5、测试启停
+>5、测试启停<label id="anchor5"></label>
 <pre class="prettyprint lang-s">
 #启动mysql
 /usr/local/mysql/support-files/mysql.server start
@@ -103,7 +115,7 @@ tail -f /usr/local/mysql/mysql.log
 /usr/local/mysql/support-files/mysql.server stop
 </pre>
 
->6、添加服务软连接，可以使用服务命令启停
+>6、添加服务软连接，可以使用服务命令启停<label id="anchor6"></label>
 <pre class="prettyprint lang-s">
 #使用软链过去，不要直接包文件复制，便于系统安装多个版本的mysql
 #以下脚本在fedora39中执行
@@ -124,7 +136,7 @@ service mysql stop
 service mysql restart
 </pre>
 	 
->7、启动后，登录，修改密码，设置权限
+>7、登录mysql，修改密码，开放远程连接<label id="anchor7"></label>
 <pre class="prettyprint lang-s">
 mysql -u root -p初始密码
 Enter password:
@@ -132,12 +144,12 @@ Enter password:
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'rootroot123';
 #注意，这和旧版本不一样，以前是set password for root@localhost = password('rootroot123');
 
-放开远程连接等动作，和mysql普通维护动作一样
+#放开远程连接等动作，和mysql普通维护动作一样
 mysql>use mysql;
 msyql>update mysql.user set host='%' where user='root';
 mysql>flush privileges;
 </pre>
->8、设置开机启动项： 
+>8、设置开机启动<label id="anchor8"></label>
 <pre class="prettyprint lang-s">
 #编写启动脚本
 cat >> /etc/rc.d/rc.local << EOF
@@ -163,7 +175,7 @@ EOF
 systemctl enable rc-local.service
 </pre>
 	 
->9、密码忘记了怎么办
+>9、密码忘记了怎么办<label id="anchor9"></label>
 <pre>
 （1）打开/etc/my.cnf在[mysqld]中加入一行 
 skip-grant-tables

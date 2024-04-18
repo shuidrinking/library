@@ -5,6 +5,7 @@
 * 我们用它来监控用户空间进程和内核的交互，比如系统调用、信号传递、进程状态变更等
 * 
 * linux并不内置strace，需要额外安装，<a href="https://strace.io/" target="_blank">官网</a>
+
 <pre class="prettyprint lang-s">
 #如果还没安装时下载进行安装
 rpm -qa|grep strace

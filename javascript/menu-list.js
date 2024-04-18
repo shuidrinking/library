@@ -45,6 +45,8 @@ var menuList = [
 	{"menuCode":"m5-2","parentMenuCode":"m5","showText":"5.2、iptables使用套路","url":"view/5/5.2.md"},
 	{"menuCode":"m5-3","parentMenuCode":"m5","showText":"5.3、firewalld使用套路","url":"view/5/5.3.md"},
 	{"menuCode":"m5-4","parentMenuCode":"m5","showText":"5.4、selinux","url":"view/5/5.4.md"},
+	{"menuCode":"m5-5","parentMenuCode":"m5","showText":"5.5、阻止外来的scp行为","url":"view/5/5.5.md"},
+	{"menuCode":"m5-6","parentMenuCode":"m5","showText":"5.6、添加针对rm的防弹衣","url":"view/5/5.6.md"},
 	
 	{"menuCode":"m6","parentMenuCode":"mlinuxop","showText":"6、运行维护","url":"#"},
 	{"menuCode":"m6-1","parentMenuCode":"m6","showText":"6.1、联机交互","url":"view/6/6.1.md"},
@@ -112,8 +114,8 @@ var menuList = [
 	{"menuCode":"mleb22","parentMenuCode":"mlinuxenvbuild","showText":"1.22、安装svn","url":"view/mlinuxenvbuild/svn.md"},
 	{"menuCode":"mleb23","parentMenuCode":"mlinuxenvbuild","showText":"1.23、安装ftp服务器","url":"view/mlinuxenvbuild/classicftp.md"},
 	{"menuCode":"mleb24","parentMenuCode":"mlinuxenvbuild","showText":"1.24、安装nfs","url":"view/mlinuxenvbuild/nfs.md"},
-	{"menuCode":"mleb25","parentMenuCode":"mlinuxenvbuild","showText":"1.25、安装邮件系统三件套","url":"view/mlinuxenvbuild/mailsystem.md"},
-	{"menuCode":"mleb25","parentMenuCode":"mlinuxenvbuild","showText":"1.25、邮件系统整合mysql","url":"view/mlinuxenvbuild/mailsystem.md"},
+	{"menuCode":"mleb25","parentMenuCode":"mlinuxenvbuild","showText":"1.25、安装邮件系统","url":"view/mlinuxenvbuild/mailsystem.md"},
+	{"menuCode":"mleb25","parentMenuCode":"mlinuxenvbuild","showText":"1.25、构建mysql版邮箱账号体系","url":"view/mlinuxenvbuild/mailintegratemysql.md"},
 	
 	{"menuCode":"mprojectom","parentMenuCode":"mlinuxserver","showText":"2、项目运维","url":"#"},
 	{"menuCode":"mpom01","parentMenuCode":"mprojectom","showText":"2.1、jar归档包更新手法","url":"view/mprojectom/jarupdate.md"},

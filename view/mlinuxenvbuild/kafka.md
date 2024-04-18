@@ -1,3 +1,11 @@
+<div class="mapInPage">
+<a href="#anchor1">1、卡夫卡参考资料</a><br/>
+<a href="#anchor2">2、安装卡夫卡</a><br/>
+<a href="#anchor3">3、启动并测试</a><br/>
+<a href="#anchor4">4、kafka集群</a><br/>
+</div>
+<label id="anchor1"></label>
+
 #### 1、卡夫卡参考资料
 >1.1 kafka讲解性资料
 * <a href="https://blog.csdn.net/dapeng1995/article/details/81536862" target="_blank">https://blog.csdn.net/dapeng1995/article/details/81536862</a>
@@ -17,6 +25,8 @@
 * <a href="https://www.orchome.com/6" target="_blank">https://www.orchome.com/6</a>
 * 
 * <a href="https://www.cnblogs.com/yinzhengjie/p/9937816.html" target="_blank">https://www.cnblogs.com/yinzhengjie/p/9937816.html</a>
+<label id="anchor2"></label>
+
 #### 2、安装卡夫卡
 >2.1 下载bin版本的
 **除了<a href="http://kafka.apache.org/downloads" target="_blank">官网下载外</a>，你可以到其他镜像网站下载**
@@ -150,6 +160,7 @@ zookeeper.connection.timeout.ms=6000
 #允许删除topic，如果不设置，则不会真正删除，而是显示marked for deletion
 delete.topic.enable=true
 </pre>
+<label id="anchor3"></label>
 
 #### 3、启动并测试
 >3.1 启停
@@ -206,6 +217,7 @@ ln -s /opt/kafka2.12-2.3.0/bin/kafka-consumer-groups.sh /usr/bin/kafka-consumer-
 #或者，直接建立个文件夹软链接
 ln -s /opt/kafka2.12-2.3.0/bin/ /usr/bin/kafka
 </pre>
+<label id="anchor4"></label>
 
 #### 4、kafka集群
 >4.1 建立kafka集群，多设几个broker
