@@ -115,7 +115,7 @@ var menuList = [
 	{"menuCode":"mleb23","parentMenuCode":"mlinuxenvbuild","showText":"1.23、安装ftp服务器","url":"view/mlinuxenvbuild/classicftp.md"},
 	{"menuCode":"mleb24","parentMenuCode":"mlinuxenvbuild","showText":"1.24、安装nfs","url":"view/mlinuxenvbuild/nfs.md"},
 	{"menuCode":"mleb25","parentMenuCode":"mlinuxenvbuild","showText":"1.25、安装邮件系统","url":"view/mlinuxenvbuild/mailsystem.md"},
-	{"menuCode":"mleb25","parentMenuCode":"mlinuxenvbuild","showText":"1.25、构建mysql版邮箱账号体系","url":"view/mlinuxenvbuild/mailintegratemysql.md"},
+	{"menuCode":"mleb26","parentMenuCode":"mlinuxenvbuild","showText":"1.26、构建mysql版邮箱账号体系","url":"view/mlinuxenvbuild/mailintegratemysql.md"},
 	
 	{"menuCode":"mprojectom","parentMenuCode":"mlinuxserver","showText":"2、项目运维","url":"#"},
 	{"menuCode":"mpom01","parentMenuCode":"mprojectom","showText":"2.1、jar归档包更新手法","url":"view/mprojectom/jarupdate.md"},

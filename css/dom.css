@@ -883,6 +883,9 @@ tbody tr:hover td {
 	line-height:0.3rem;
 	background-color: #f6fafb;
 	border: 1px solid #a0beff;
+	opacity: 0.8;
+	max-height: calc(100% - 1rem);
+	overflow: auto;
 }
 .addspace{
 	padding-left:0.32rem;
