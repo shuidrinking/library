@@ -9,14 +9,23 @@ function init(){
 	menu.Container = "menuContent";//指定容器
 	menu.addNode("0", null, "文档", "0");
 	//{"menuCode":"","showText":"","url":"","parentMenuCode":"","levelNo":"2"}
+	let firstLevelMenus = [];
 	for(var p in menuList){
 		menuMap[menuList[p].menuCode]=menuList[p];
+		if(menuList[p].parentMenuCode=="0"){
+			firstLevelMenus.push(menuList[p]);
+		}
 		menu.addNode(menuList[p].menuCode, menuList[p].parentMenuCode, menuList[p].showText, menuList[p].menuCode);
 	}
 	menu.expandAllFlag=false;//是否在加载时默认展开所有
 	menu.URLProxy = "loadView";
 	menu.RootNodeId = "0";//设置跟结点
 	menu.generateMenu();//勾画菜单树
+	if(firstLevelMenus.length>0){
+		for(let x in firstLevelMenus){
+			MenuTree.ShowHide(firstLevelMenus[x].menuCode);
+		}
+	}
 }
 /**
  * iframe onload事件调整大小
