@@ -327,12 +327,10 @@ pre {
 	height:0.6rem;
 	line-height:0.6rem;
 	vertical-align:middle;
-	padding:0.05rem;
 	margin:0 0.05rem;
 }
 .subTitleDiv{
 	text-align:left;
-	padding:0.05rem;
 	font-weight:bold;
 	min-height:0.4rem;
 	line-height:0.4rem;
@@ -344,7 +342,7 @@ pre {
 	text-align:left;
 	border:0;
 	line-height:0.3rem;
-	padding: 0.05rem;
+	padding: 0.1rem;
 	margin: 0 0.05rem 0 0.3rem;
 }
 .conditionDiv{
@@ -358,14 +356,13 @@ pre {
 }
 .contentDiv{
 	text-align:left;
-	border:1px solid #d1e2ff;
 	line-height:0.3rem;
-	width: calc(100% - 0.22rem);
-	padding:0.05rem;
-	margin:0.05rem;
+	padding:0.1rem;
+	margin:0.1rem;
 }
 .addBorder{
 	border:1px solid #d1e2ff;
+	border-radius: 0.05rem;
 }
 table{
 	width:calc(100% - 0.1rem);
