@@ -1,8 +1,8 @@
 #### 1、安装音频解码器
 
->1.1 首选 audicious
+>1.1 首选 <a href="https://audacious-media-player.org" target="_blank">audicious</a>
 
-* 官网：https://audacious-media-player.org
+
 <pre class="prettyprint lang-s">
 #安装本体
 dnf install audacious
