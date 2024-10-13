@@ -1,4 +1,47 @@
+/*右方向粗箭头，html中&#10148;，css中\27A4*/
+:root {
+	--classicblue:#1E9FFF;
+	--classicorange:#FF5722;
+	--classicyellow:#FFB800;
+	--classicgreen:#16b777;
+	--kleinblue:#002fa7;
+	--titianred:#d34947;
+	--hermesorange:#EB5C20;
+	--tiffanygreen:#71e2d1;
+	--chinared:#d80c18;
+	--burgundyred:#470125;
+	--prussianblue:#0d3869;
+	--vandykebrow:#492d22;
+	--marrsgreen:#01847e;
+	--yellow:#ffbf50;
+	--common-text-color:#585858;
+}
+/**
+ * 添加屏幕宽高比的条件：
+ * and (device-aspect-ratio:16/9)
+ */
+@media screen and (min-width: 1080px) {
+	:root {
+		--body-font-size:14px;
+		--rem-common-font-size:0.14rem;
+		--input-font-size:0.16rem;
+	}
+}
+
+@media screen and (max-width: 1080px) {
+	:root {
+		--body-font-size:26px;
+		--rem-common-font-size:0.26rem;
+		--input-font-size:0.26rem;
+	}
+}
+
+.inline-block{
+	display:inline-block;
+}
+
 *{
+	font-family: Verdana;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -18,11 +61,11 @@ html,body{
 	height:100%;
 }
 body {
-	font-size: 14px;
+	font-size: var(--body-font-size);
 	line-height: 100%;
 	font-family: "Verdana","微软雅黑","宋体";
 	counter-reset: filedSets 0 stepsCounterSN 0;
-	letter-spacing: 1px;
+	letter-spacing: 0.01rem;
 }
 img {
 	border: 0;
@@ -34,7 +77,7 @@ h1, h2, h3, h4, h5, h6{
 	padding: 0.1rem 0;
 }
 div {
-	font-size:0.14rem;
+	font-size: var(--rem-common-font-size);
 	border: 0;
 	padding:0;
 	margin:0;
@@ -53,18 +96,17 @@ a{
 	text-decoration: none;
 	color:#006da3;
 }
-a:hover{
+a:hover {
 	color:#0087c6;
 }
 table tr td {
-	border-bottom: 1px dotted #f3f3f3;
+	border-bottom: 0.01rem dotted #f3f3f3;
 }
-
 /*滚动条里面小方块*/
 ::-webkit-scrollbar {
 	/*定义有效宽度*/
-	width: 0.05rem;
-	height: 0.05rem;
+	width: 0.06rem;
+	height: 0.06rem;
 	/*加上后滚动条两端箭头会消失 height: 10px; */
 }
 /*滚动条里面小方块*/
@@ -77,16 +119,32 @@ table tr td {
 	border-radius: 0.03rem;
 	background: #fefefe;
 }
+
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;
+	word-wrap: break-word;
+	word-break: break-all;
+	/**清除元素的默认浏览器样式，例如input的顶部内黑线，select的下拉框，number的增减箭头等
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	select::-ms-expand { display: none; }IE的select要单独定义这一句**/
+}
 ::-ms-browse, [type='file'] {
 	line-height: 0.25rem;
-	border:1px solid #E76262;
+	border:0.01rem solid #E76262;
 	color:#D12D2D;
 	background:#FDFAFA;
 	border-radius: 0.03rem;
 }
 ::-webkit-file-upload-button {
 	line-height: 0.25rem;
-	border:1px solid #E76262;
+	border:0.01rem solid #E76262;
 	color:#D12D2D;
 	background:#FDFAFA;
 	border-radius: 0.03rem;
@@ -98,7 +156,7 @@ table tr td {
 }
 fieldset {
 	border: none;
-	font-size:0.14rem;
+	font-size:0.18rem;
 }
 fieldset:last-of-type {
 	margin-bottom: 0;
@@ -140,55 +198,50 @@ input::-webkit-inner-spin-button{
 	color:#cccccc;
 	font-size:0.12rem;
 }
-input {
+/* input {
 	border-radius: 0.03rem;
 	min-height:0.25rem;
 	padding-left:0.05rem;
-	border:1px solid #dddddd;
+	border:0.01rem solid #dddddd;
 	vertical-align: middle;
 }
 input:focus{
-	border: 1px solid #ff9e96;
-	-moz-box-shadow: 0 0 0.12rem #ffb2ab;
-	-webkit-box-shadow: 0 0 0.12rem #ffb2ab;
-	box-shadow: 0 0 0.12rem #ffb2ab;
+	border: 0.01rem solid #204d86;
+	-moz-box-shadow: 0 0 0.12rem #5591ff;
+	-webkit-box-shadow: 0 0 0.12rem #5591ff;
+	box-shadow: 0 0 0.12rem #5591ff;
+} */
+
+input {
+	min-height:0.25rem;
+	padding-left:0.05rem;
+	border:0;
+	border:0.01rem solid #86b7ff;
+	border-radius:0.05rem;
+	font-size: var(--input-font-size);
 }
-input[type="checkbox"]{
+input:focus{
+	border: 0.01rem solid #2f83ff;
+}
+/* 设置输入框尾部叉号的样式 */
+input::-webkit-search-cancel-button {
+	color: red; 
+}
+/* 兼容其他浏览器 */
+input::-moz-clear {
+	color: red;
+}
+input[type="checkbox"], input[type="radio"]{
 	margin:auto 0.05rem;
 	min-width:0.2rem;
 	background: #FFFFFF;
-	font-size: 0.14rem;
 	line-height: 0;
+	vertical-align:middle;
+	cursor:pointer;
 }
-input[type="radio"]{
-	margin:auto 0.05rem;
-	min-width:0.2rem;
-	background: #FFFFFF;
-	font-size: 0.14rem;
-	line-height: 0;
-}
-input[type="text"]{
+input[type="text"], input[type="tel"], input[type="number"], input[type="password"], input[type="month"]{
 	min-width:1.5rem;
 	background: #FFFFFF;
-	font-size: 0.14rem;
-	line-height: 0;
-}
-input[type="tel"]{
-	min-width:1.5rem;
-	background: #FFFFFF;
-	font-size: 0.14rem;
-	line-height: 0;
-}
-input[type="number"]{
-	min-width:1.5rem;
-	background: #FFFFFF;
-	font-size: 0.14rem;
-	line-height: 0;
-}
-input[type="password"]{
-	min-width:1.5rem;
-	background: #FFFFFF;
-	font-size: 0.14rem;
 	line-height: 0;
 }
 input[type="date"]{
@@ -197,47 +250,46 @@ input[type="date"]{
 	height: 0.27rem;
 	line-height:0.27rem;
 	width:98%;
-	font-size: 0.14rem;
 	margin:0.5em 0;
 	-moz-border-radius:0.05rem;
 	-webkit-border-radius:0.05rem;
 	border-radius:0.05rem;
-	border:1px solid #aaaaaa;
+	border:0.01rem solid #aaaaaa;
 }
 input[type="date"]:active{
-	border:1px solid #648FC3;
+	border:0.01rem solid #648FC3;
 	-moz-box-shadow:0 0 0.12rem #4C95FD;
 	-webkit-box-shadow:0 0 0.12rem #4C95FD;
 	box-shadow:0 0 0.12rem #4C95FD;
 }
-input[type="month"]{
-	min-width:1.5rem;
-	background: #FFFFFF;
-	height: 0.16rem;
-	font-size: 0.14rem;
-}
 input[type="submit"]{
 	background: #FFFFFF;
 	height: 0.29rem;
-	font-size: 0.14rem;
 	line-height: 0;
-	border:1px solid #aaaaaa;
+	border:0.01rem solid #aaaaaa;
 	-webkit-border-radius: .4em;
 	-moz-border-radius: .4em;
 	border-radius: .4em;
 	width:100%;
 }
+input[type="file"]{
+	min-width:1.5rem;
+	background: #FFFFFF;
+	line-height: 0;
+	padding: 0.05rem;
+	cursor:pointer;
+}
 select{
 	min-width:1rem;
 	padding:0 0 0 0.05rem;
-	border: 1px solid #aaaaaa;
+	/* border: 0.01rem solid #aaaaaa; */
 	height: 0.3rem;
-	border-radius: 0.03rem 0 0 0.03rem;
-	font-size: 0.14rem;
+	border-radius: 0.05rem;
+	font-size: var(--input-font-size);
 	vertical-align: middle;
 }
 select:active{
-	border: 1px solid #ff9e96;
+	border: 0.01rem solid #ff9e96;
 	-moz-box-shadow: 0 0 0.12rem #ffb2ab;
 	-webkit-box-shadow: 0 0 0.12rem #ffb2ab;
 	box-shadow: 0 0 0.12rem #ffb2ab;
@@ -254,7 +306,7 @@ textArea{
 	border-radius: 0.03rem;
 	padding:0.05rem;
 	margin: 0.05rem 0px; 
-	border: 1px solid rgb(222, 222, 222); 
+	border: 0.01rem solid rgb(222, 222, 222); 
 	border-image: none; 
 	min-width: 500px; 
 	min-height: 1rem; 
@@ -277,7 +329,7 @@ pre {
 	padding-left:0.2rem;
 }
 .blue_border{
-	border-bottom:1px solid #d1e2ff;
+	border-bottom:0.01rem solid #d1e2ff;
 }
 /*多步计数器*/
 .stepsContainner>*{
@@ -312,18 +364,18 @@ pre {
 }
 /*tab标题框的下划线*/
 .tabTitleLine{
-	height: 0.01rem;
-	min-height: 1px;
+	height: 0.012rem;
+	min-height: 0.012rem;
 	width: calc(100% - 0.1rem);
 	background: linear-gradient(90deg, #60a1ef, #ffffff 30%);
-	margin: 0 0.05rem 0.05rem 0.05rem;
+	margin: 0 0.05rem -0.05rem 0.05rem;
 }
 .titleDiv{
 	color:#04003e;
 	font-size:0.20rem;
 	text-align:left;
 	font-weight:bold;
-	border-bottom:1px solid #d1e2ff;
+	border-bottom:0.01rem solid #d1e2ff;
 	height:0.6rem;
 	line-height:0.6rem;
 	vertical-align:middle;
@@ -336,18 +388,18 @@ pre {
 	line-height:0.4rem;
 	margin: 0.05rem;
 	color:#00157e;
-	font-size:0.16rem;
+	font-size:0.18rem;
 }
 .subContentDiv{
 	text-align:left;
 	border:0;
 	line-height:0.3rem;
-	padding: 0.1rem;
+	padding: 0.05rem;
 	margin: 0 0.05rem 0 0.3rem;
 }
 .conditionDiv{
 	text-align:left;
-	border-bottom:1px solid #d1e2ff;
+	border-bottom:0.01rem solid #d1e2ff;
 	vertical-align:middle;
 	height:0.4rem;
 	line-height:0.4rem;
@@ -361,37 +413,39 @@ pre {
 	margin:0.1rem;
 }
 .addBorder{
-	border:1px solid #d1e2ff;
-	border-radius: 0.05rem;
+	border:0.01rem solid #d1e2ff;
+	border-radius:0.06rem;
 }
 table{
 	width:calc(100% - 0.1rem);
 	border-collapse:collapse;/*collapse时,radius不生效 separate时圆角生效 相当于cellspacing=0*/
 	border-spacing:0;
 	margin:0.05rem 0 0.05rem 0.05rem;
-	border:1px solid #d1e2ff;
+	border:0.01rem solid #d1e2ff;
 }
 thead tr
 {
-	border-bottom:1px solid #d1e2ff;
+	font-size: 0.18rem;
+	border-bottom:0.01rem solid #d1e2ff;
 }
 thead tr th {
 	height:0.4rem;
 	vertical-align:middle;
-	font-size: 0.16rem;
+	font-size: 0.18rem;
   	font-weight:bold;
 	text-align:center;
-	border-right:1px solid #d1e2ff;
+	border-right:0.01rem solid #d1e2ff;
 	padding:0 0.05rem;
 }
 tbody tr {
-	border-bottom:1px dashed #d1e2ff;
+	font-size: 0.18rem;
+	border-bottom:0.01rem dashed #d1e2ff;
 }
 tbody tr td {
 	height:0.4rem;
 	vertical-align:middle;
-	font-size: 0.14rem;
-	border-right:1px dashed #d1e2ff;
+	font-size: 0.18rem;
+	border-right:0.01rem dashed #d1e2ff;
 	padding:0 0.05rem;
 	line-height:0.3rem;
 }
@@ -407,137 +461,6 @@ tbody tr:hover td {
 .across tr:hover td {
 	background-color: #fffaf0;
 }
-.button{
-	border:1px solid #a5a5a5;
-	background:#fafafa;
-	text-align:center;
-	font-weight:normal;
-	display:inline-block;
-	height: 0.26rem;
-	padding: 0 0.15rem 0 0.2rem;
-	margin: 0;
-	line-height: 0.26rem;
-	font-size: 0.14rem;
-	-moz-border-radius:0.03rem;
-	-webkit-border-radius:0.03rem;
-	border-radius:0.03rem;
-	letter-spacing:0.05rem;
-	cursor: pointer;
-}
-.miniButton{
-	border:1px solid #a5a5a5;
-	background:#fafafa;
-	text-align:center;
-	font-weight:normal;
-	display:inline-block;
-	height: 0.2rem;
-	padding: 0 0.05rem;
-	margin: 0 0.05rem;
-	line-height: 0.2rem;
-	font-size: 0.12rem;
-	-moz-border-radius:0.03rem;
-	-webkit-border-radius:0.03rem;
-	border-radius:0.03rem;
-	cursor: pointer;
-}
-.submitButton{
-	font-weight:normal;
-	text-align:center;
-	display:inline-block;
-	height: 0.35rem;
-	width:100%;
-	margin: 0.05rem 0;
-	line-height: 0.35rem;
-	font-size: 0.16rem;
-	-moz-border-radius:0.05rem;
-	-webkit-border-radius:0.05rem;
-	border-radius:0.05rem;
-	letter-spacing:0.05rem;
-	cursor: pointer;
-	border: 1px solid #c2c2c2;
-	color: #333333;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#FCFCFC),to(#DCDCDC));
-	background-image: -webkit-linear-gradient(#FCFCFC,#DCDCDC);
-	background-image: -moz-linear-gradient(#FCFCFC,#DCDCDC);
-	background-image: -ms-linear-gradient(#FCFCFC,#DCDCDC);
-	background-image: -o-linear-gradient(#FCFCFC,#DCDCDC);
-	background-image: linear-gradient(#FCFCFC,#DCDCDC);
-}
-.deepRedButton {
-	border: 1px solid #E03737;
-	color: #FFFFFF;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#F56363),to(#A03238));
-	background-image: -webkit-linear-gradient(#F56363,#A03238);
-	background-image: -moz-linear-gradient(#F56363,#A03238);
-	background-image: -ms-linear-gradient(#F56363,#A03238);
-	background-image: -o-linear-gradient(#F56363,#A03238);
-	background-image: linear-gradient(#F56363,#A03238);
-}
-.lightRedButton{
-	border:1px solid #E76262;
-	color:#D12D2D;
-	background:#FDFAFA;
-}
-.deepBlueButton {
-	border: 1px solid #69A7D8;
-	color: #FFFFFF;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#7FDAFD),to(#169FCA));
-	background-image: -webkit-linear-gradient(#7FDAFD,#169FCA);
-	background-image: -moz-linear-gradient(#7FDAFD,#169FCA);
-	background-image: -ms-linear-gradient(#7FDAFD,#169FCA);
-	background-image: -o-linear-gradient(#7FDAFD,#169FCA);
-	background-image: linear-gradient(#7FDAFD,#169FCA);
-}
-.lightBlueButton{
-	border:1px solid #69A7D8;
-	color:#1787D7;
-	background:#E4F0FF;
-}
-.deepPurpleButton {
-	border: 1px solid #a946f5;
-	color: #FFFFFF;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#c579ff),to(#a341ee));
-	background-image: -webkit-linear-gradient(#c579ff,#a341ee);
-	background-image: -moz-linear-gradient(#c579ff,#a341ee);
-	background-image: -ms-linear-gradient(#c579ff,#a341ee);
-	background-image: -o-linear-gradient(#c579ff,#a341ee);
-	background-image: linear-gradient(#c579ff,#a341ee);
-}
-.lightPurpleButton{
-	border:1px solid #C469D8;
-	color:#AE17D7;
-	background:#EBE4FF;
-}
-.deepOrangeButton {
-	border: 1px solid #F5AE43;
-	color: #FFFFFF;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#f0c911),to(#f2ab1e));
-	background-image: -webkit-linear-gradient(#f0c911,#f2ab1e);
-	background-image: -moz-linear-gradient(#f0c911,#f2ab1e);
-	background-image: -ms-linear-gradient(#f0c911,#f2ab1e);
-	background-image: -o-linear-gradient(#f0c911,#f2ab1e);
-	background-image: linear-gradient(#f0c911,#f2ab1e);
-}
-.lightOrangeButton{
-	border:1px solid #FFB005;
-	color:#FFB005;
-	background:#FFFCE2;
-}
-.deepPinkButton {
-	border: 1px solid #F45DDB;
-	color: #FFFFFF;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#FCA1EA),to(#EE41D2));
-	background-image: -webkit-linear-gradient(#FCA1EA,#EE41D2);
-	background-image: -moz-linear-gradient(#FCA1EA,#EE41D2);
-	background-image: -ms-linear-gradient(#FCA1EA,#EE41D2);
-	background-image: -o-linear-gradient(#FCA1EA,#EE41D2);
-	background-image: linear-gradient(#FCA1EA,#EE41D2);
-}
-.lightPinkButton{
-	border:1px solid #FF05F2;
-	color:#FF05F2;
-	background:#FDF4FD;
-}
 .colorButtonDisable{
 	opacity:0.5;
 }
@@ -546,7 +469,7 @@ tbody tr:hover td {
 	letter-spacing:0.1rem;
 }
 .buttonDisable{
-	border:1px solid #a5a5a5;
+	border:0.01rem solid #a5a5a5;
 	background:#d1e2ff;
 	color:#939393;
 }
@@ -578,26 +501,30 @@ tbody tr:hover td {
 
 /*对话框样式*/
 .dialogInfoDiv{
-	position:absolute;
-	min-width:3.5rem;
+	position:fixed;
+	width:4rem;
 	border:0;
 	background:#ffffff;
 	text-align:center;
 	z-index:200002;
 	padding:0px;
 	margin:0 auto;
-	top:50%;
-	left:50%;
-	margin-left:-1.4rem;
+	top:30%;
+	left:calc(50% - 2rem);
+	box-shadow: 0.03rem 0.03rem 0.1rem #636363;
+	animation:commonZoom 0.1s linear 0s 1 normal;
+	-moz-animation:commonZoom 0.1s linear 0s 1 normal;/* Firefox: */
+	-webkit-animation:commonZoom 0.1s linear 0s 1 normal;/* Safari and Chrome: */
+	-o-animation:commonZoom 0.1s linear 0s 1 normal;/* Opera: */
 }
 .dialogMaskDiv{
-	position:absolute;
+	position:fixed;
 	top:0;
 	left:0;
-	width:calc(100% - 0.3rem);
-	height:calc(100vh - 0.35rem);
+	width:100vw;
+	height:100vh;
 	z-index:200001;
-	background:#ffffff;
+	background:#000000;
 	filter:alpha(opacity=10);
 	opacity:0.1;
 }
@@ -606,7 +533,7 @@ tbody tr:hover td {
 	top:0px;
 	left:0px;
 	width:100%;
-	height:calc(100% -0.1rem);
+	height:calc(100vh - 0.1rem);
 	z-index:-1;
 	filter:alpha(opacity=0);
 	opacity:0;
@@ -614,7 +541,7 @@ tbody tr:hover td {
 .dialogTable{
 	width:100%;
 	margin:auto;
-	border:1px solid  #aaaaaa;
+	border:0.01rem solid  #aaaaaa;
 }
 .dialogTable tbody tr{
 	border:0;
@@ -622,22 +549,24 @@ tbody tr:hover td {
 .dialogTitle {
 	height:0.36rem;
 	vertical-align:middle;
-	background: #d1e2ff;
+	background: #e3e3e3;
 	text-align: left;
 	padding-left: 0.1rem;
 	color: #222222;
 	font-weight: bold;
-	border-bottom:1px solid #d1e2ff;
+	border-bottom:0.01rem solid #d3d3d3;
+	cursor:move;
 }
 .dialogContent{
 	background:#ffffff;
 	text-align:left;
 	vertical-align:middle;
-	padding:0.2rem 0.1rem;
+	padding:0.3rem 0.1rem;
 	white-space : normal;
 	word-wrap : break-word ;
-	border-bottom:1px solid #d1e2ff;
+	border-bottom:0.01rem solid #d3d3d3;
 	text-indent :0.32rem;
+	line-height:0.3rem;
 }
 .dialogBottom {
 	text-align: center;
@@ -645,7 +574,7 @@ tbody tr:hover td {
 	vertical-align:middle;
 }
 .dialogButton{
-	border:1px solid #a5a5a5;
+	border:0.01rem solid #a5a5a5;
 	background:#fafafa;
 	text-align:center;
 	font-weight:normal;
@@ -671,7 +600,7 @@ tbody tr:hover td {
 .dialogPageDiv{
 	min-height:4rem;
 	min-width:6rem;
-	border:1px solid #d0d0d0;
+	border:0.01rem solid #d0d0d0;
 	position:absolute;
 	background:#ffffff;
 	z-index:9999;
@@ -748,7 +677,7 @@ tbody tr:hover td {
 	-webkit-transform:rotate(6deg);
 	-moz-transform:rotate(6deg);
 	-o-transform:rotate(6deg);
-	text-shadow: 1px 1px 0 #faff9b;
+	text-shadow: 0.01rem 0.01rem 0 #faff9b;
 	color: #d37e00;
 	border: 0.01rem solid #f49502;
 }
@@ -777,7 +706,7 @@ tbody tr:hover td {
 	-moz-transform:rotate(-4deg);
 	-o-transform:rotate(-4deg);
 	background-image: linear-gradient(#fffaed,#ffc773);
-	text-shadow: 1px 1px 0 #ffae6d;
+	text-shadow: 0.01rem 0.01rem 0 #ffae6d;
 	color: #9b5d00;
 	border: 0.01rem solid #f47402;
 }
@@ -786,7 +715,7 @@ tbody tr:hover td {
 	-moz-transform:rotate(5deg);
 	-o-transform:rotate(5deg);
   	background-image: linear-gradient(#f4fbf1,#bcffbc);
-  	text-shadow: 1px 1px 0 #c6ffa8;
+  	text-shadow: 0.01rem 0.01rem 0 #c6ffa8;
 	color: #007a00;
 	border: 0.01rem solid #279106;
 }
@@ -795,7 +724,7 @@ tbody tr:hover td {
 	-moz-transform:rotate(5deg);
 	-o-transform:rotate(5deg);
   	background-image: linear-gradient(#f5fcff,#b1f8ff);
-  	text-shadow: 1px 1px 0 #9bfff9;
+  	text-shadow: 0.01rem 0.01rem 0 #9bfff9;
 	color: #005cd3;
 	border: 0.01rem solid #00a1c7;
 }

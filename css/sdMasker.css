@@ -1,14 +1,14 @@
 /*以下是遮罩样式*/
 .maskerDiv {
-	z-index: 9999;
+	z-index: 8888;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	left: 0;
 	top: 0;
 	position: fixed;
-	background: #000;
-	opacity: .3;
-	filter: alpha(opacity = 30)
+	background: #525252;
+	opacity: 0.2;
+	filter: alpha(opacity = 30);
 }
 .hidden{
 	display:none;
@@ -18,13 +18,13 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	z-index: 999997;
 	text-align: center;
 	writing-mode: tb-rl;
-	background: #fff;
-	opacity: .3;
-	filter: alpha(opacity = 30)
+	background: #525252;
+	opacity: 0.2;
+	filter: alpha(opacity = 30);
 }
 /*下面定义是为不支持CSS3的浏览器设计*/
 .loadingImgStatic {
@@ -40,20 +40,19 @@
 }
 /*下面定义是为CSS3浏览器设计*/
 .loadingImg {
-	width: 1.2rem;
-	height: 1.2rem;
+	width: 0.7rem;
+	height: 0.7rem;
 	position: fixed;
 	z-index: 999999;
-	top: 40%;
-	left: 50%;
+	top: calc(50% - 0.7rem);
+	left: calc(50% - 0.7rem);
 	background: url("../image/sdMasker/waitingLogo.png") center center no-repeat;
-	background-size: contain
+	background-size: 0.5rem 0.5rem;
 }
 .loadingImgCirclediv {
 	z-index: 999998;
 	width: 0.7rem;
 	height: 0.7rem;
-	margin: -0.15rem 0 0 -0.15rem;
 	background-image: url("../image/sdMasker/loading.png");
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -81,7 +80,7 @@
 .loadingStatic{
 	border:0;
 	padding:0;
-	width: 0.5rem;
+	width: 1.5rem;
 	height: 0.4rem;
 	position: fixed;
 	z-index: 999999;

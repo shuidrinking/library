@@ -1,5 +1,6 @@
 var menuList=menuList||[];
 var menuMap={}; 
+var menuPathKeyedMap={};
 function init(){
 	if(typeof(Worker) == "undefined"){
 		return;
@@ -11,6 +12,7 @@ function init(){
 	//{"menuCode":"","showText":"","url":"","parentMenuCode":"","levelNo":"2"}
 	for(var p in menuList){
 		menuMap[menuList[p].menuCode]=menuList[p];
+		menuPathKeyedMap[menuList[p].url]=menuList[p];
 		menu.addNode(menuList[p].menuCode, menuList[p].parentMenuCode, menuList[p].showText, menuList[p].menuCode);
 	}
 	menu.expandAllFlag=false;//是否在加载时默认展开所有

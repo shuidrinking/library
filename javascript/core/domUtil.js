@@ -19,34 +19,40 @@ Server.sessionData = Server.sessionData || {};//session数据
 
 var Client = Client||{};//客户端浏览器
 Client.context = Client.context || {};//网页数据容器
-var ScreenRelativeScale=1;
+var ScreenRelativeScale=1;//屏幕显示缩放的比例
 /*!function(baseFontSize) {
-	var baseScreenWidth=window.screen.availWidth;;//1920;
-	var screenWidth=window.screen.availWidth;
-	var baseFontSize=100;
-	baseScreenWidth=baseScreenWidth*(screenWidth/baseScreenWidth);
-	if (!document.addEventListener){
-		return;
-	}
-	var documentElement = document.documentElement;
-	var resizeTimeout;
-	var reSizeEvent = typeof window.onorientationchange === "object" ? "orientationchange" : "resize";
-	var resetBaseFontSize = function() {
-		var clientWidth = document.documentElement.clientWidth;
-		if(!clientWidth){
-			return;
-		}
-		if (clientWidth > 10000) {
-			clientWidth = 10000;
-		}
-		var newFontSize = baseFontSize * (clientWidth / baseScreenWidth);
-		ScreenRelativeScale = clientWidth / baseScreenWidth;
-		documentElement.style.fontSize = newFontSize + "px";
-	};
-	resetBaseFontSize();
-	window.addEventListener(reSizeEvent, resetBaseFontSize, false);
+	以匿名的方式调用；
 }();*/
+
+document.ready = function (callback) {
+	///兼容FF,Google
+	if (document.addEventListener) {
+		document.addEventListener('DOMContentLoaded', function () {
+			document.removeEventListener('DOMContentLoaded', arguments.callee, false);
+			callback();
+		}, false)
+	}
+	 //兼容IE
+	else if (document.attachEvent) {
+		document.attachEvent('onreadystatechange', function () {
+			if (document.readyState == "complete") {
+					document.detachEvent("onreadystatechange", arguments.callee);
+					callback();
+			}
+		})
+	}
+	else if (document.lastChild == document.body) {
+		callback();
+	}
+}
+/* 
+ * 浏览器缩放，整页内容按比例也缩放
+ * 将本函数抽取出来，不以匿名函数方式执行，原因是：可以在页面上提供 +-按钮，点击时调用本函数，让客户自定义显示大小
+ */
 function resetFontSize(increment){
+	if(!increment){
+		increment=0;
+	}
 	if(sessionStorage.getItem("baseFontSize")==null){
 		sessionStorage.setItem("baseFontSize", 100);
 	}
@@ -54,9 +60,10 @@ function resetFontSize(increment){
 	ajustBaseFontSize = parseInt(ajustBaseFontSize, 10) + increment;
 	sessionStorage.setItem("baseFontSize", ajustBaseFontSize);
 	
-	var baseScreenWidth=window.screen.availWidth;;//1920;
-	var screenWidth=window.screen.availWidth;
-	baseScreenWidth=baseScreenWidth*(screenWidth/baseScreenWidth);
+	//var baseScreenWidth=window.screen.availWidth;//1920;
+	//var screenWidth=window.screen.availWidth;
+	//baseScreenWidth=baseScreenWidth*(screenWidth/baseScreenWidth);
+	
 	if (!document.addEventListener){
 		return;
 	}
@@ -71,8 +78,14 @@ function resetFontSize(increment){
 		if (clientWidth > 10000) {
 			clientWidth = 10000;
 		}
+		//默认baseScreenWidth就是屏幕宽度
+		let baseScreenWidth = window.screen.availWidth;
+		//屏幕宽度太窄，或者把页面缩放到太窄，将按750算宽度
+		if(baseScreenWidth<=1080 || clientWidth<=1080){
+			baseScreenWidth = 750;
+		}
 		var baseFontSize = 100;
-		if(sessionStorage.getItem("baseFontSize")!=null){
+		if(sessionStorage.getItem("baseFontSize")){
 			baseFontSize=sessionStorage.getItem("baseFontSize");
 		}
 		var newFontSize = baseFontSize * (clientWidth / baseScreenWidth);
@@ -94,19 +107,19 @@ function $(eleKey) {
 		ele = document.getElementById(eleKey);
 		if(!ele){
 			var t = document.getElementsByName(eleKey);
-	  		if(t && t.length>0){
-	  			return t;
-	  		}
-		  	else{
-		  		t = document.getElementsByTagName(eleKey);
-		  		if(t && t.length>0){
-		  			return t;
-		  		}
-		  		else{
-		  			return null;
-		  		}
-		  	}
-	  	}
+			if(t && t.length>0){
+				return t;
+			}
+			else{
+				t = document.getElementsByTagName(eleKey);
+				if(t && t.length>0){
+					return t;
+				}
+				else{
+					return null;
+				}
+			}
+		}
 		else{
 			return ele;
 		}
@@ -128,14 +141,14 @@ Client.calcRemValue=function(pxValue){
  * 卷去高度
  */
 Client.getScrollTop = function() {
-    var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
-    if (document.body) {
+	var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+	if (document.body) {
 		bodyScrollTop = document.body.scrollTop;
-    }
-    if (document.documentElement) {
+	}
+	if (document.documentElement) {
 		documentScrollTop = document.documentElement.scrollTop;
-    }
-    scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;   
+	}
+	scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;   
 	return scrollTop;
 };
 
@@ -143,28 +156,28 @@ Client.getScrollTop = function() {
  * 可视窗口高度
  */
 Client.getClientHeight = function() {
-    var windowHeight = 0;
+	var windowHeight = 0;
 	if (document.compatMode == "CSS1Compat") {
-        windowHeight = document.documentElement.clientHeight;
-    }
+		windowHeight = document.documentElement.clientHeight;
+	}
 	else {
 		windowHeight = document.body.clientHeight;
-    }
-    return windowHeight;
+	}
+	return windowHeight;
 };
 
 /**
  * 文档的全部高度
  */
 Client.getScrollHeight = function() {
-    var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
-    if (document.body) {
-        bodyScrollHeight = document.body.scrollHeight;
-    }
-    if (document.documentElement) {
-        documentScrollHeight = document.documentElement.scrollHeight;
-    }
-    scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+	var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+	if (document.body) {
+		bodyScrollHeight = document.body.scrollHeight;
+	}
+	if (document.documentElement) {
+		documentScrollHeight = document.documentElement.scrollHeight;
+	}
+	scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
 	return scrollHeight;
 };
 
@@ -191,9 +204,9 @@ Client.remove = function(element) {
  * 窗口滚动到指定的元素位置，类似页面上的<a href="#id">
  */
 Client.windowScrollTo = function(element) {
-  	var x = element.x ? element.x : element.offsetLeft;
-   	var y = element.y ? element.y : element.offsetTop;
-  	window.scrollTo(x, y);
+	var x = element.x ? element.x : element.offsetLeft;
+	var y = element.y ? element.y : element.offsetTop;
+	window.scrollTo(x, y);
 }
 /**
  * 拖动某元素
@@ -366,14 +379,15 @@ sdMasker.loading.hidden = function() {
 	document.querySelector("#loadingImgDiv2").style.display="none";
 };
 /**
- * 屏蔽默认的alert
+ * 屏蔽默认的alert，以Dialog组件替代
+ * 要调用原始的alert时这样写：_alert(args)
  */
 (function(window,undefined){
 	window._alert=window.alert;
 	window.alert=function(content,callbackFunction,focusId,showTitle){
 		try{
-			if(parent){
-			parent.Dialog.alert(content,callbackFunction,focusId,showTitle);
+			if(parent && parent.Dialog){
+				parent.Dialog.alert(content,callbackFunction,focusId,showTitle);
 			}
 			else{
 				Dialog.alert(content,callbackFunction,focusId,showTitle);
@@ -457,28 +471,28 @@ function getQueryParams(){
  * @returns
  */
 function doCopyText(elementId) {
-    var _ele = document.getElementById(elementId);
-    if(!_ele){
-    	return;
-    }
-    if (document.body.createTextRange) {
-        var range = document.body.createTextRange();
-        range.moveToElementText(_ele);
-        range.select();
-    }
-    else if (window.getSelection) {
-        var selection = window.getSelection();
-        var range = document.createRange();
-        range.selectNodeContents(_ele);
-        selection.removeAllRanges();
-        selection.addRange(range);
-    }
-    else{
-    	//无法复制
-    	return;
-    }
-    document.execCommand('Copy');
-    alert('复制成功');
+	var _ele = document.getElementById(elementId);
+	if(!_ele){
+		return;
+	}
+	if (document.body.createTextRange) {
+		var range = document.body.createTextRange();
+		range.moveToElementText(_ele);
+		range.select();
+	}
+	else if (window.getSelection) {
+		var selection = window.getSelection();
+		var range = document.createRange();
+		range.selectNodeContents(_ele);
+		selection.removeAllRanges();
+		selection.addRange(range);
+	}
+	else{
+		//无法复制
+		return;
+	}
+	document.execCommand('Copy');
+	alert('复制成功');
 }
 
 /**
@@ -487,74 +501,73 @@ function doCopyText(elementId) {
  * @returns
  */
 function forbidSpecialKeys(e) {  
-    var ev = e || window.event; //获取event对象  
-    var obj = ev.target || ev.srcElement; //获取事件源  
-    var t = obj.tagName.toLowerCase(); //获取输入元素事件源类型  
-    //禁止F5
-    /*if(ev.keyCode == 116){
-    	ev.keyCode=0;
-    	ev.cancelBubble=true;
-    	return false;
-    }
-    //禁止F11
-    else if(ev.keyCode == 122){
-    	ev.keyCode=0;
-    	ev.returnValue=false;
-    	return false;
-    }*/
-    //禁止ctrl+n
-    if(ev.ctrlKey && ev.keyCode == 78){
-    	ev.keyCode=0;
-    	ev.returnValue=false;
-    	return false;
-    }
-    //禁止shift+F10
-    else if(ev.shiftKey && ev.keyCode == 121){
-    	ev.keyCode=0;
-    	ev.returnValue=false;
-    	return false;
-    }
+	var ev = e || window.event; //获取event对象  
+	var obj = ev.target || ev.srcElement; //获取事件源  
+	var t = obj.tagName.toLowerCase(); //获取输入元素事件源类型  
+	//禁止F5
+	/*if(ev.keyCode == 116){
+		ev.keyCode=0;
+		ev.cancelBubble=true;
+		return false;
+	}
+	//禁止F11
+	else if(ev.keyCode == 122){
+		ev.keyCode=0;
+		ev.returnValue=false;
+		return false;
+	}*/
+	//禁止ctrl+n
+	if(ev.ctrlKey && ev.keyCode == 78){
+		ev.keyCode=0;
+		ev.returnValue=false;
+		return false;
+	}
+	//禁止shift+F10
+	else if(ev.shiftKey && ev.keyCode == 121){
+		ev.keyCode=0;
+		ev.returnValue=false;
+		return false;
+	}
 	//禁止shift再点链接新开窗口
-    else if(obj.tagName.toLowerCase()=="a" && ev.shiftKey ){
-    	ev.keyCode=0;
-    	ev.returnValue=false;
-    	return false;
-    }
-    //禁止ctrl+R
-    else if (ev.ctrlKey && ev.keyCode == 82){
-    	ev.keyCode=0;
-    	ev.returnValue=false;
-    	return false;
-    }
-    //禁止alt+方向键
-    else if (ev.altKey && (ev.keyCode == 37 || ev.keyCode == 39)){
-    	ev.keyCode=0;
-    	ev.returnValue=false;
-    	return false;
-    }
-    
-    //获取作为判断条件的事件类型  
-    var vReadOnly = obj.readOnly;  
-    var vDisabled = obj.disabled;  
-    //处理undefined值情况  
-    vReadOnly = (vReadOnly == undefined) ? false : vReadOnly;  
-    vDisabled = (vDisabled == undefined) ? true : vDisabled;  
-    //当敲Backspace键时，事件源类型为密码或单行、多行文本的，  
-    //并且readOnly属性为true或disabled属性为true的，则退格键失效  
-    var flag1 = ev.keyCode == 8 && (t == "input" || t == "textarea") && (vReadOnly == true || vDisabled == true);  
-    //当敲Backspace键时，事件源类型非密码或单行、多行文本的，则退格键失效  
-    var flag2 = ev.keyCode == 8 && t != "input" && t != "textarea";  
-    //判断  
-    if (flag2 || flag1) return false;  
+	else if(obj.tagName.toLowerCase()=="a" && ev.shiftKey ){
+		ev.keyCode=0;
+		ev.returnValue=false;
+		return false;
+	}
+	//禁止ctrl+R
+	else if (ev.ctrlKey && ev.keyCode == 82){
+		ev.keyCode=0;
+		ev.returnValue=false;
+		return false;
+	}
+	//禁止alt+方向键
+	else if (ev.altKey && (ev.keyCode == 37 || ev.keyCode == 39)){
+		ev.keyCode=0;
+		ev.returnValue=false;
+		return false;
+	}
+	
+	//获取作为判断条件的事件类型  
+	var vReadOnly = obj.readOnly;  
+	var vDisabled = obj.disabled;  
+	//处理undefined值情况  
+	vReadOnly = (vReadOnly == undefined) ? false : vReadOnly;  
+	vDisabled = (vDisabled == undefined) ? true : vDisabled;  
+	//当敲Backspace键时，事件源类型为密码或单行、多行文本的，  
+	//并且readOnly属性为true或disabled属性为true的，则退格键失效  
+	var flag1 = ev.keyCode == 8 && (t == "input" || t == "textarea") && (vReadOnly == true || vDisabled == true);  
+	//当敲Backspace键时，事件源类型非密码或单行、多行文本的，则退格键失效  
+	var flag2 = ev.keyCode == 8 && t != "input" && t != "textarea";  
+	//判断  
+	if (flag2 || flag1) return false;  
 }
 
 //禁止后退键 作用于Firefox、Opera  
 document.onkeypress = forbidSpecialKeys;
 //禁止后退键  作用于IE、Chrome  
 document.onkeydown = forbidSpecialKeys;
-
 /**
- * 获取打开页面的属性，即：使用window.open函数的第三个参数，通过本函数获得
+ * 获取打开页面的属性的字符串，即：使用window.open函数的第三个参数，通过本函数获得
  * window.open("../2/2.2.html", null, theproperty);
  * @returns
  */

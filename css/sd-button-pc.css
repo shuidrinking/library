@@ -1,0 +1,262 @@
+.close-button {
+	cursor: pointer;
+	display: flex;
+	position: absolute;
+	right: 0.1rem;
+	top: 0.1rem;
+	letter-spacing: 0;
+	color: #ff0000;
+	/* border: 1px solid #ff0000; */
+	line-height: unset;
+	flex-wrap: nowrap;
+	align-items: center;
+	text-align: center;
+	width: 0.3rem;
+	height: 0.3rem;
+	justify-content: center;
+	border-radius: 0.05rem;
+	font-weight: bold;
+}
+.close-button:before{
+	content: "✕";
+}
+.close-button:hover{
+	background-color:#ff0000;
+	color:#ffffff;
+}
+.cleanButton{
+	margin:auto 0.1rem; 
+	width:0.2rem; 
+	height:0.2rem;
+	cursor:pointer;
+}
+.cleanButton::before{
+	content:" ✖ ";
+	color:#ff0000;
+}
+
+.colorButtonDisable{
+	opacity:0.5;
+}
+
+.buttonDisable{
+	border:0.01rem solid #a5a5a5;
+	background:#e3e3e3;
+	color:#939393;
+}
+.showMoreButton{
+	font-size:0.14rem;
+	background:url(../image/more.png) 0.3rem 0.06rem no-repeat;
+	width:1.5rem;
+	-webkit-border-radius:0.04rem;
+	border-radius:0.04rem;
+	font-weight:normal;
+	margin-top:0.1rem;
+	margin-bottom:0.1rem;
+	padding:0.06rem 0 0.04rem 0.32rem;
+}
+.button-box{
+	text-align:center;
+	padding:0.05rem;
+	margin:0.05rem;
+}
+/*一些旧代码里的样式名称*/
+.buttonBoxDiv{
+	text-align:center;
+	padding:0.05rem;
+	margin:0.05rem;
+}
+.button{
+	position: relative;
+	overflow: hidden;
+	transition: 0.3s;
+	border:0.01rem solid #a5a5a5;
+	text-align:center;
+	font-weight:normal;
+	display:inline-block;
+	display:inline-grid;
+	height: 0.26rem;
+	padding: 0 0.15rem 0 0.2rem;
+	margin: 0;
+	line-height: 0.28rem;
+	font-size: 0.14rem;
+	-moz-border-radius:0.03rem;
+	-webkit-border-radius:0.03rem;
+	border-radius:0.03rem;
+	letter-spacing:0.05rem;
+	cursor: pointer;
+}
+.button::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(120deg, transparent, #f1f1f1, transparent);
+	transform: translateX(-100%);
+	transition: 0.3s;
+}
+.button:hover::before {
+	transform: translateX(100%);
+}
+.miniButton{
+	border:0.01rem solid #a5a5a5;
+	text-align:center;
+	font-weight:normal;
+	display:inline-block;
+	height: 0.2rem;
+	padding: 0 0.05rem;
+	margin: 0 0.05rem;
+	line-height: 0.2rem;
+	font-size: 0.13rem;
+	-moz-border-radius:0.03rem;
+	-webkit-border-radius:0.03rem;
+	border-radius:0.03rem;
+	cursor: pointer;
+}
+.bigButton{
+	position: relative;
+	overflow: hidden;
+	transition: 0.3s;
+	font-weight:normal;
+	text-align:center;
+	display:inline-grid;
+	height: 0.35rem;
+	margin: 0.05rem 0;
+	line-height: 0.35rem;
+	padding: 0 0.15rem 0 0.2rem;
+	font-size:0.16rem;
+	-moz-border-radius:0.05rem;
+	-webkit-border-radius:0.05rem;
+	border-radius:0.05rem;
+	letter-spacing:0.05rem;
+	cursor: pointer;
+	border: 0.01rem solid #c2c2c2;
+	color: #333333;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#FCFCFC),to(#DCDCDC));
+	background-image: -webkit-linear-gradient(#FCFCFC,#DCDCDC);
+	background-image: -moz-linear-gradient(#FCFCFC,#DCDCDC);
+	background-image: -ms-linear-gradient(#FCFCFC,#DCDCDC);
+	background-image: -o-linear-gradient(#FCFCFC,#DCDCDC);
+	background-image: linear-gradient(#FCFCFC,#DCDCDC);
+}
+.bigButton::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(120deg, transparent, #f1f1f1, transparent);
+	transform: translateX(-100%);
+	transition: 0.3s;
+}
+.bigButton:hover::before {
+	transform: translateX(100%);
+}
+.deepRedButton {
+	border: 0.01rem solid #E03737;
+	color: #FFFFFF;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#F56363),to(#A03238));
+	background-image: -webkit-linear-gradient(#F56363,#A03238);
+	background-image: -moz-linear-gradient(#F56363,#A03238);
+	background-image: -ms-linear-gradient(#F56363,#A03238);
+	background-image: -o-linear-gradient(#F56363,#A03238);
+	background-image: linear-gradient(#F56363,#A03238); 
+}
+.deepRedButton:hover{
+	box-shadow: 0 0 0.1rem 0.02rem #E03737;
+}
+.lightRedButton{
+	border:0.01rem solid #E76262;
+	color:#D12D2D;
+	background:#ffffff;
+}
+.lightRedButton:hover{
+	box-shadow: 0 0 0.1rem 0.02rem #E76262;
+}
+.deepBlueButton {
+	border: 0.01rem solid #69A7D8;
+	color: #FFFFFF;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#71a6de),to(#1680ca));
+	background-image: -webkit-linear-gradient(#71a6de,#1680ca);
+	background-image: -moz-linear-gradient(#71a6de,#1680ca);
+	background-image: -ms-linear-gradient(#71a6de,#1680ca);
+	background-image: -o-linear-gradient(#71a6de,#1680ca);
+	background-image: linear-gradient(#71a6de,#1680ca);
+}
+.deepBlueButton:hover{
+	 box-shadow: 0 0 0.1rem 0.02rem #69A7D8;
+}
+.lightBlueButton{
+	border: 0.01rem solid #30a4ff;
+	color: #1491ea;
+	background: #ffffff;
+}
+.lightBlueButton:hover{
+	 box-shadow: 0 0 0.1rem 0.02rem #69A7D8;
+}
+.deepPurpleButton {
+	border: 0.01rem solid #a946f5;
+	color: #FFFFFF;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#c579ff),to(#a341ee));
+	background-image: -webkit-linear-gradient(#c579ff,#a341ee);
+	background-image: -moz-linear-gradient(#c579ff,#a341ee);
+	background-image: -ms-linear-gradient(#c579ff,#a341ee);
+	background-image: -o-linear-gradient(#c579ff,#a341ee);
+	background-image: linear-gradient(#c579ff,#a341ee);
+}
+.deepPurpleButton:hover{
+	 box-shadow: 0 0 0.1rem 0.02rem #a946f5;
+}
+.lightPurpleButton{
+	border:0.01rem solid #C469D8;
+	color:#AE17D7;
+	background:#ffffff;
+}
+.lightPurpleButton:hover{
+	 box-shadow: 0 0 0.1rem 0.02rem #C469D8;
+}
+.deepOrangeButton {
+	border: 0.01rem solid #F5AE43;
+	color: #FFFFFF;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#f0c911),to(#f2ab1e));
+	background-image: -webkit-linear-gradient(#f0c911,#f2ab1e);
+	background-image: -moz-linear-gradient(#f0c911,#f2ab1e);
+	background-image: -ms-linear-gradient(#f0c911,#f2ab1e);
+	background-image: -o-linear-gradient(#f0c911,#f2ab1e);
+	background-image: linear-gradient(#f0c911,#f2ab1e);
+}
+.deepOrangeButton:hover{
+	 box-shadow: 0 0 0.1rem 0.02rem #F5AE43;
+}
+.lightOrangeButton{
+	border:0.01rem solid #FFB005;
+	color:#FFB005;
+	background:#ffffff;
+}
+.lightOrangeButton:hover{
+	 box-shadow: 0 0 0.1rem 0.02rem #FFB005;
+}
+.deepPinkButton {
+	border: 0.01rem solid #F45DDB;
+	color: #FFFFFF;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#FCA1EA),to(#EE41D2));
+	background-image: -webkit-linear-gradient(#FCA1EA,#EE41D2);
+	background-image: -moz-linear-gradient(#FCA1EA,#EE41D2);
+	background-image: -ms-linear-gradient(#FCA1EA,#EE41D2);
+	background-image: -o-linear-gradient(#FCA1EA,#EE41D2);
+	background-image: linear-gradient(#FCA1EA,#EE41D2);
+}
+.deepPinkButton:hover{
+	 box-shadow: 0 0 0.1rem 0.02rem #F45DDB;
+}
+.lightPinkButton{
+	border:0.01rem solid #FF05F2;
+	color:#FF05F2;
+	background:#FDF4FD;
+}
+.lightPinkButton:hover{
+	 box-shadow: 0 0 0.1rem 0.02rem #FF05F2;
+}
