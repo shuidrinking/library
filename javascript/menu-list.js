@@ -60,6 +60,7 @@ var menuList = [
 	{"menuCode":"m6-9","parentMenuCode":"m6","showText":"6.9、切换当前身份分组","url":"view/6/6.9.md"},
 	{"menuCode":"m6-10","parentMenuCode":"m6","showText":"6.10、alias和link","url":"view/6/6.10.md"},
 	{"menuCode":"m6-11","parentMenuCode":"m6","showText":"6.11、应用的日志管理","url":"view/6/6.11.md"},
+	{"menuCode":"m6-12","parentMenuCode":"m6","showText":"6.12、查看已保存的wifi密码","url":"view/6/6.12.md"},
 	
 	{"menuCode":"m7","parentMenuCode":"mlinuxop","showText":"7、权限管理","url":"#"},
 	{"menuCode":"m7-1","parentMenuCode":"m7","showText":"7.1、设置文件归属及权限","url":"view/7/7.1.md"},
