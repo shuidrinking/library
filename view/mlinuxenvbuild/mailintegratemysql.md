@@ -1,36 +1,36 @@
 <script type="text/javascript" src="javascript/components/google-code-prettify/language/lang-sql.js"></script>
 
 <div class="mapInPage" style="line-height:0.2rem;">
-<a href="#anchor1">1、环境准备</a><br/>
-<a href="#anchor1.1" class="addspace">1.1 参考资料</a><br/>
-<a href="#anchor1.2" class="addspace">1.2 启用postfix的虚拟账号模式</a><br/>
-<a href="#anchor1.3" class="addspace">1.3 在linux中创建用户vmail</a><br/>
-<a href="#anchor1.4" class="addspace">1.4 安装postfix-mysql以及dovecot-mysql</a><br/>
-<a href="#anchor1.5" class="addspace">1.5 申请域名证书</a><br/>
-<a href="#anchor2">2、mysql配置</a><br/>
-<a href="#anchor2.1" class="addspace">2.1 为mysql.sock建立软链接</a><br/>
-<a href="#anchor2.2" class="addspace">2.2 在mysql中创建邮件系统需要的账号和数据库</a><br/>
-<a href="#anchor2.3" class="addspace">2.3 创建邮件系统需要的表</a><br/>
-<a href="#anchor3">3、postfix配置加强</a><br/>
-<a href="#anchor3.1" class="addspace">3.1 安装cyrus-sasl-plain</a><br/>
-<a href="#anchor3.2" class="addspace">3.2 完善main.cf中的配置项</a><br/>
-<a href="#anchor4">4、postfix整合mysql</a><br/>
-<a href="#anchor4.1" class="addspace">4.1 postfix配置sql的语法规范</a><br/>
-<a href="#anchor4.2" class="addspace">4.2 配置邮箱用户的账号</a><br/>
-<a href="#anchor4.3" class="addspace">4.3 配置邮箱用户的域名</a><br/>
-<a href="#anchor4.4" class="addspace">4.4 配置邮箱用户的别名</a><br/>
-<a href="#anchor4.5" class="addspace">4.5 配置邮箱用户的邮件目录</a><br/>
-<a href="#anchor4.6" class="addspace">4.6配置mysql-*.cf系列文件的权限</a><br/>
-<a href="#anchor5">5、配置dovecot并集成mysql</a><br/>
-<a href="#anchor5.1" class="addspace">5.1 配置ip监听规则</a><br/>
-<a href="#anchor5.2" class="addspace">5.2 配置dovecot-sql.conf.ext</a><br/>
-<a href="#anchor5.3" class="addspace">5.3 开启数据库认证</a><br/>
-<a href="#anchor5.4" class="addspace">5.4 用户信箱通配</a><br/>
-<a href="#anchor5.5" class="addspace">5.5 收件箱命名空间设置</a><br/>
-<a href="#anchor5.6" class="addspace">5.6 允许postfix访问dovecot的地盘</a><br/>
-<a href="#anchor5.7" class="addspace">5.7 开放到公网时的SSL设置</a><br/>
-<a href="#anchor6">6、验证测试</a><br/>
-<a href="#anchor7">7、附录：可能会遇到的问题</a>
+<a href="javascript:Client.windowScrollTo('anchor1');">1、环境准备</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1.1');" class="addspace">1.1 参考资料</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1.2');" class="addspace">1.2 启用postfix的虚拟账号模式</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1.3');" class="addspace">1.3 在linux中创建用户vmail</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1.4');" class="addspace">1.4 安装postfix-mysql以及dovecot-mysql</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1.5');" class="addspace">1.5 申请域名证书</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor2');">2、mysql配置</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor2.1');" class="addspace">2.1 为mysql.sock建立软链接</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor2.2');" class="addspace">2.2 在mysql中创建邮件系统需要的账号和数据库</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor2.3');" class="addspace">2.3 创建邮件系统需要的表</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3');">3、postfix配置加强</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3.1');" class="addspace">3.1 安装cyrus-sasl-plain</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3.2');" class="addspace">3.2 完善main.cf中的配置项</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4');">4、postfix整合mysql</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.1');" class="addspace">4.1 postfix配置sql的语法规范</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.2');" class="addspace">4.2 配置邮箱用户的账号</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.3');" class="addspace">4.3 配置邮箱用户的域名</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.4');" class="addspace">4.4 配置邮箱用户的别名</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.5');" class="addspace">4.5 配置邮箱用户的邮件目录</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.6');" class="addspace">4.6配置mysql-*.cf系列文件的权限</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor5');">5、配置dovecot并集成mysql</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor5.1');" class="addspace">5.1 配置ip监听规则</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor5.2');" class="addspace">5.2 配置dovecot-sql.conf.ext</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor5.3');" class="addspace">5.3 开启数据库认证</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor5.4');" class="addspace">5.4 用户信箱通配</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor5.5');" class="addspace">5.5 收件箱命名空间设置</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor5.6');" class="addspace">5.6 允许postfix访问dovecot的地盘</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor5.7');" class="addspace">5.7 开放到公网时的SSL设置</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor6');">6、验证测试</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor7');">7、附录：可能会遇到的问题</a>
 </div>
 <label id="anchor1"></label>
 

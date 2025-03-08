@@ -1,8 +1,8 @@
 <div class="mapInPage">
-<a href="#anchor1">1、安装nexus3</a><br/>
-<a href="#anchor2">2、使用本私库</a><br/>
-<a href="#anchor3">3、私库安全设置</a><br/>
-<a href="#anchor4">4、nexus控制台操作仓库记录</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1');">1、安装nexus3</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor2');">2、使用本私库</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3');">3、私库安全设置</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4');">4、nexus控制台操作仓库记录</a><br/>
 </div>
 <label id="anchor1"></label>
 

@@ -1,13 +1,13 @@
 <div class="mapInPage">
-<a href="#anchor1">1、添加mysql分组和用户</a><br/>
-<a href="#anchor2">2、下载并解压</a><br/>
-<a href="#anchor3">3、创建目录和配置文件，分配权限</a><br/>
-<a href="#anchor4">4、执行安装</a><br/>
-<a href="#anchor5">5、测试启停</a><br/>
-<a href="#anchor6">6、添加服务软连接</a><br/>
-<a href="#anchor7">7、修改root密码，开放远程连接</a><br/>
-<a href="#anchor8">8、设置开机启动</a><br/>
-<a href="#anchor9">9、忘记密码怎么办</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1');">1、添加mysql分组和用户</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor2');">2、下载并解压</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3');">3、创建目录和配置文件，分配权限</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4');">4、执行安装</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor5');">5、测试启停</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor6');">6、添加服务软连接</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor7');">7、修改root密码，开放远程连接</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor8');">8、设置开机启动</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor9');">9、忘记密码怎么办</a><br/>
 </div>
 
 #### 安装mysql8

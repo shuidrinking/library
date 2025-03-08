@@ -1,8 +1,8 @@
 <div class="mapInPage">
-<a href="#anchor1">1、卡夫卡参考资料</a><br/>
-<a href="#anchor2">2、安装卡夫卡</a><br/>
-<a href="#anchor3">3、启动并测试</a><br/>
-<a href="#anchor4">4、kafka集群</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1');">1、卡夫卡参考资料</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor2');">2、安装卡夫卡</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3');">3、启动并测试</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4');">4、kafka集群</a><br/>
 </div>
 <label id="anchor1"></label>
 

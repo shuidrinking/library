@@ -1,30 +1,30 @@
 <div class="mapInPage">
-<a href="#anchor1">1、环境准备</a><br/>
-<a href="#anchor1.1" class="addspace">1.1 卸载sendmail</a><br/>
-<a href="#anchor1.2" class="addspace">1.2 设置服务器域名信息</a><br/>
-<a href="#anchor1.3" class="addspace">1.3 设置开放端口</a><br/>
-<a href="#anchor2">2、安装邮件系统3大件</a><br/>
-<a href="#anchor2.1" class="addspace">2.1 安装</a><br/>
-<a href="#anchor2.2" class="addspace">2.2 设置mta为postfix</a><br/>
-<a href="#anchor3">3、配置并测试postfix</a><br/>
-<a href="#anchor3.1" class="addspace">3.1 配置postfix属性</a><br/>
-<a href="#anchor3.2" class="addspace">3.2 配置postfix的参数</a><br/>
-<a href="#anchor3.3" class="addspace">3.3 启动并核验配置</a><br/>
-<a href="#anchor3.4" class="addspace">3.4 测试发送邮件</a><br/>
-<a href="#anchor3.5" class="addspace">3.5 查看邮件发送结果</a><br/>
-<a href="#anchor4">4、配置并使用dovecot</a><br/>
-<a href="#anchor4.1" class="addspace">4.1 设置监听协议</a><br/>
-<a href="#anchor4.2" class="addspace">4.2 允许以明文登录</a><br/>
-<a href="#anchor4.3" class="addspace">4.3 设置邮箱存储位置</a><br/>
-<a href="#anchor4.4" class="addspace">4.4 禁用ssl认证</a><br/>
-<a href="#anchor4.5" class="addspace">4.5 设置dovecot的日志</a><br/>
-<a href="#anchor5">5、设置发送出去的邮件的“来源域名”</a><br/>
-<a href="#anchor6">6、附录</a><br/>
-<a href="#anchor6.1" class="addspace">6.1 发送邮件的sh脚本样例</a><br/>
-<a href="#anchor6.2" class="addspace">6.2 postfix配置文件master.cf</a><br/>
-<a href="#anchor6.3" class="addspace">6.3 邮件服务器参考资料</a><br/>
-<a href="#anchor6.4" class="addspace">6.4 伪装发件地址</a><br/>
-<a href="#anchor6.5" class="addspace">6.5 postfix的一些操作命令</a>
+<a href="javascript:Client.windowScrollTo('anchor1');">1、环境准备</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1.1');" class="addspace">1.1 卸载sendmail</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1.2');" class="addspace">1.2 设置服务器域名信息</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor1.3');" class="addspace">1.3 设置开放端口</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor2');">2、安装邮件系统3大件</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor2.1');" class="addspace">2.1 安装</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor2.2');" class="addspace">2.2 设置mta为postfix</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3');">3、配置并测试postfix</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3.1');" class="addspace">3.1 配置postfix属性</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3.2');" class="addspace">3.2 配置postfix的参数</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3.3');" class="addspace">3.3 启动并核验配置</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3.4');" class="addspace">3.4 测试发送邮件</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor3.5');" class="addspace">3.5 查看邮件发送结果</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4');">4、配置并使用dovecot</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.1');" class="addspace">4.1 设置监听协议</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.2');" class="addspace">4.2 允许以明文登录</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.3');" class="addspace">4.3 设置邮箱存储位置</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.4');" class="addspace">4.4 禁用ssl认证</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor4.5');" class="addspace">4.5 设置dovecot的日志</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor5');">5、设置发送出去的邮件的“来源域名”</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor6');">6、附录</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor6.1');" class="addspace">6.1 发送邮件的sh脚本样例</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor6.2');" class="addspace">6.2 postfix配置文件master.cf</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor6.3');" class="addspace">6.3 邮件服务器参考资料</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor6.4');" class="addspace">6.4 伪装发件地址</a><br/>
+<a href="javascript:Client.windowScrollTo('anchor6.5');" class="addspace">6.5 postfix的一些操作命令</a>
 </div>
 
 <label id="anchor1"></label>
