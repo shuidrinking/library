@@ -123,4 +123,9 @@ var menuList = [
 	
 	{"menuCode":"mprojectom","parentMenuCode":"mlinuxserver","showText":"2、项目运维","url":"#"},
 	{"menuCode":"mpom01","parentMenuCode":"mprojectom","showText":"2.1、jar归档包更新手法","url":"view/mprojectom/jarupdate.md"},
+	
+	{"menuCode":"mai","parentMenuCode":"0","showText":"三、人工智能","url":"#"},
+	{"menuCode":"mai100","parentMenuCode":"mai","showText":"1、概念","url":"#"},
+	{"menuCode":"mai101","parentMenuCode":"mai100","showText":"1.1、基础概念","url":"view/ai/core-concept.md"},
+	
 ];
