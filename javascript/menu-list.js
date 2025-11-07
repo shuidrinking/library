@@ -125,7 +125,7 @@ var menuList = [
 	{"menuCode":"mpom01","parentMenuCode":"mprojectom","showText":"2.1、jar归档包更新手法","url":"view/mprojectom/jarupdate.md"},
 	
 	{"menuCode":"mai","parentMenuCode":"0","showText":"三、人工智能","url":"#"},
-	{"menuCode":"mai100","parentMenuCode":"mai","showText":"1、概念","url":"#"},
+	{"menuCode":"mai100","parentMenuCode":"mai","showText":"1、基础知识","url":"#"},
 	{"menuCode":"mai101","parentMenuCode":"mai100","showText":"1.1、基础概念","url":"view/ai/core-concept.md"},
 	{"menuCode":"mai102","parentMenuCode":"mai100","showText":"1.2、deepseek解释自助意力工作流","url":"view/ai/self-attention-workflow-deepseek.md"},
 	{"menuCode":"mai103","parentMenuCode":"mai100","showText":"1.3、claude解释自助意力工作流","url":"view/ai/self-attention-workflow-claude.md"},
