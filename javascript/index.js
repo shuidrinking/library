@@ -66,6 +66,7 @@ function loadView(menuCode, _element){
 	Server.loadResource(url, function(data){
 		containner.innerHTML = marked.parse(data);
 		PR.prettyPrint();
+		containner.scrollTo({left: 0, top: 0, behavior: "smooth"});
 	});
 }
 /**
