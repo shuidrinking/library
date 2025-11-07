@@ -413,7 +413,7 @@ pre {
 	margin:0.1rem;
 }
 .addBorder{
-	border:0.01rem solid #d1e2ff;
+	border:0.01rem solid #e5e5e5;
 	border-radius:0.06rem;
 }
 table{
@@ -421,36 +421,31 @@ table{
 	border-collapse:collapse;/*collapse时,radius不生效 separate时圆角生效 相当于cellspacing=0*/
 	border-spacing:0;
 	margin:0.05rem 0 0.05rem 0.05rem;
-	border:0.01rem solid #d1e2ff;
+	border:0.01rem solid #e5e5e5;
 }
 thead tr
 {
-	font-size: 0.18rem;
-	border-bottom:0.01rem solid #d1e2ff;
+	border-bottom:0.01rem solid #e5e5e5;
 }
 thead tr th {
 	height:0.4rem;
 	vertical-align:middle;
-	font-size: 0.18rem;
+	font-size: 0.16rem;
   	font-weight:bold;
 	text-align:center;
-	border-right:0.01rem solid #d1e2ff;
 	padding:0 0.05rem;
 }
 tbody tr {
-	font-size: 0.18rem;
-	border-bottom:0.01rem dashed #d1e2ff;
+	border-bottom:0.01rem dashed #e5e5e5;
 }
 tbody tr td {
 	height:0.4rem;
 	vertical-align:middle;
-	font-size: 0.18rem;
-	border-right:0.01rem dashed #d1e2ff;
 	padding:0 0.05rem;
 	line-height:0.3rem;
 }
 tbody tr:hover td {
-	background-color: #fffaf0;
+	background-color: #fffee4;
 }
 .across tr:nth-child(2n){
 	background-color:#fafafa;
