@@ -29,8 +29,11 @@ html body{
 	position:relative;
 }
 #headDiv{
-	width: 100%;
+	position: fixed;
+	z-index:100;
+	background-color: #ffffff;
 	height: 0.4rem;
+	width:3.5rem;
 	border: 0;
 	display: block;
 	line-height: 0.4rem;
@@ -97,7 +100,7 @@ html body{
 	transition: left 0.2s linear 0s;
 }
 .menuContent{
-	padding: 0 0.1rem 0.1rem 0.1rem;
+	padding: 0.45rem 0.1rem 0.1rem 0.1rem;
 }
 .workAreaDivMin {
 	width: calc(100% - 3.8rem);
