@@ -30,9 +30,9 @@
 
 @media screen and (max-width: 1080px) {
 	:root {
-		--body-font-size:26px;
-		--rem-common-font-size:0.26rem;
-		--input-font-size:0.26rem;
+		--body-font-size:20rem;
+		--rem-common-font-size:20remrem;
+		--input-font-size:0.20rem;
 	}
 }
 
