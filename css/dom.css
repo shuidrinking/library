@@ -77,6 +77,28 @@ h1, h2, h3, h4, h5, h6{
 	margin: 0.02rem 0;
 	padding: 0.1rem 0;
 }
+
+h4{
+	padding-left:0.3rem;
+	/* background-image: url(../image/icons/currentLocation.png);
+	background-repeat: no-repeat;
+	background-position-y: center;
+	background-size: 0.2rem; */
+}
+h4::before{
+	font-family: shuidrinking;
+	transform: rotateY(180deg);
+	display: block;
+	width:0.2rem;
+	height:0.2rem;
+	font-size: 20px;
+	color: #007ed8;
+	content:"\e980";
+	position:absolute;
+	top: calc(50% - 0.1rem);
+	left:0;
+}
+
 div {
 	font-size: var(--rem-common-font-size);
 	border: 0;
@@ -90,8 +112,20 @@ blockquote{
 	margin : 0.1rem 0;
 	font-size: 0.14rem;
 	font-weight: bold;
-	border-left: 0.04rem solid #d0d7de;
-	padding-left:0.1rem;
+	color:#00157e;
+	padding-left:0.2rem;
+	border-radius: 0.04rem;
+	overflow: hidden;
+	position:relative;
+}
+blockquote::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0.04rem;
+	height: 100%;
+	background-color: #ff9f56;
 }
 a{
 	text-decoration: none;
@@ -836,4 +870,27 @@ summary::after {
 }
 /*详细解释说明样式定义*/
 details[open]::details-content {
+}
+/*标题行*/
+.summary{
+	outline: 0;
+	position: relative;
+	display: flex;/*垂直居中*/
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0.05rem 0.15rem;
+	cursor:pointer;
+	font-weight:bold;
+	overflow: hidden;
+	border-radius: 0.04rem;
+	color:#00157e;
+}
+.summary::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0.04rem;
+	height: 100%;
+	background-color: #ff9f56;
 }
