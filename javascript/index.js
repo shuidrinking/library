@@ -1,10 +1,27 @@
 var menuList=menuList||[];
 var menuMap={}; 
 var menuPathKeyedMap={};
-function init(){
-	if(typeof(Worker) == "undefined"){
-		return;
+Client.context.isMobile=false;
+async function init(){
+	let _link=document.querySelector("#indexcss");
+	let _arrowLink=document.querySelector("#arrowcss");
+	Client.context.isMobile =!await isMobile();
+	if(Client.context.isMobile){
+		_link.href="css/index.m.css";
+		_arrowLink.href="css/arrow.m.css";
+		document.querySelector("#workAreaDiv").classList.add("workAreaDivMax");
+		document.querySelector("#menuDiv").classList.add("menuDivHidden");
+		document.querySelector(".arrow").classList.remove("arrow-to-left");//移动端默认菜单是隐藏的
+		document.querySelector(".arrow").classList.add("arrow-to-right");
+		document.querySelector("#menuToggleDiv").classList.add("menuHidden");
 	}
+	else{
+		_link.href="css/index.css";
+		_arrowLink.href="css/arrow.css";
+	}
+	_link.onload=()=>{
+		document.body.style.display="";
+	};
 	//生成菜单树控件
 	var menu = new MenuTree();
 	menu.Container = "menuContent";//指定容器
@@ -26,6 +43,9 @@ function init(){
  * @returns
  */
 async function loadView(menuCode, _element){
+	if(Client.context.isMobile){
+		toggleMenu();
+	}
 	var url=null;
 	if(menuMap[menuCode]){
 		url=menuMap[menuCode].url;
@@ -136,19 +156,28 @@ async function loadView(menuCode, _element){
  * @returns
  */
 var menuExpand=true;
+
+/**
+ * 设置菜单显示状态
+ * @returns
+ */
 function toggleMenu(){
-	if(menuExpand){
-		$("menuDiv").className="menuDivHidden";
-		$("menuToggleDiv").className="showMenuIcon";
-		$("menuToggleDiv").innerHTML="<div class='arrow arrow-right'></div>";
-		$("workAreaDiv").className="workAreaDivMax";
-		menuExpand=false;
+	let _toggleBar=document.querySelector("#menuToggleDiv");
+	let _arrow=document.querySelector("#menuToggleArrowDiv");
+	if(!_toggleBar.classList.contains("menuHidden")){
+		_arrow.classList.replace("arrow-to-left", "arrow-to-right");
+		$("menuDiv").classList.add("menuDivHidden");
+		if(!Client.context.isMobile){
+			$("workAreaDiv").classList.add("workAreaDivMax");
+		}
+		_toggleBar.classList.add("menuHidden");
 	}
 	else{
-		$("menuDiv").className="menuDivShow";
-		$("menuToggleDiv").className="hideMenuIcon";
-		$("menuToggleDiv").innerHTML="<div class='arrow arrow-left'></div>";
-		$("workAreaDiv").className="workAreaDivMin";
-		menuExpand=true;
+		_arrow.classList.replace("arrow-to-right", "arrow-to-left");
+		$("menuDiv").classList.remove("menuDivHidden");
+		if(!Client.context.isMobile){
+			$("workAreaDiv").classList.remove("workAreaDivMax");
+		}
+		_toggleBar.classList.remove("menuHidden")
 	}
 }

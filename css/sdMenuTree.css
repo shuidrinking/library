@@ -1,8 +1,16 @@
-﻿.treeControl *{
+﻿:root {
+	--menu-tree-fontsize:0.14rem;
+	--menu-tree-lineheight:0.2rem;
+	--menuitem-arrow-width:0.05rem;
+	--menuitem-arrow-active-width:0.08rem;
+	--menurow-node-height: 0.2rem;
+}
+.treeControl *{
 	border:0;
 	margin:0;
 	padding:0;
-	font-size:0.14rem;
+	font-size: var(--menu-tree-fontsize);
+	
 }
 .treeControlFirstUl{
 	background:none !important;
@@ -21,11 +29,13 @@
 	padding-left:0.25rem;
 	/*overflow:hidden;
 	white-space: nowrap;*/
+	line-height:var(--menurow-node-height);
 }
 .treeControl ul li a{
 	text-decoration: none;
 	color:#004e9c;
 	cursor: pointer;
+	line-height: var(--menu-tree-lineheight);
 }
 .treeControl ul li a:hover {
 	color: #ffffff;
@@ -63,20 +73,21 @@
 	height: 0;
 	/* margin: 0.12rem 0.13rem -0.03rem 0; */
 	margin: 0.15rem 0.13rem -0.03rem -0.03rem;
-	border: 0.05rem solid transparent;
+	border: var(--menuitem-arrow-width) solid transparent;
 	border-left-color: #003366;
-	border-left-width: 0.08rem;
+	border-left-width: var(--menuitem-arrow-active-width);
 	transition:0.2s;
 	transform:rotate(90deg);
 }
+
 .treeControlCloseFolder{
 	display:inline-block;
 	width: 0;
 	height: 0;
 	margin: 0.12rem 0.1rem 0 0;
-	border: 0.05rem solid transparent;
+	border: var(--menuitem-arrow-width) solid transparent;
 	border-left-color: #003366;
-	border-left-width: 0.08rem;
+	border-left-width: var(--menuitem-arrow-active-width);
 	transition:0.2s;
 	transform:rotate(0deg);
 }

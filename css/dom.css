@@ -15,6 +15,10 @@
 	--marrsgreen:#01847e;
 	--yellow:#ffbf50;
 	--common-text-color:#585858;
+	--title-div-align:left;
+	--title-div-fontsize:0.2rem;
+	--title-div-height:0.5rem;
+	--content-line-height:0.3rem;
 }
 /**
  * 添加屏幕宽高比的条件：
@@ -24,15 +28,15 @@
 	:root {
 		--body-font-size:14px;
 		--rem-common-font-size:0.14rem;
-		--input-font-size:0.16rem;
+		--input-font-size:0.14rem;
 	}
 }
 
 @media screen and (max-width: 1080px) {
 	:root {
-		--body-font-size:20rem;
-		--rem-common-font-size:20remrem;
-		--input-font-size:0.20rem;
+		--body-font-size:0.3rem;
+		--rem-common-font-size:0.3rem;
+		--input-font-size:0.3rem;
 	}
 }
 
@@ -64,8 +68,8 @@ html,body{
 body {
 	font-size: var(--body-font-size);
 	line-height: 100%;
-	font-family: "Verdana","微软雅黑","宋体";
-	counter-reset: filedSets 0 stepsCounterSN 0;
+	font-family: "Verdana","微软雅黑","宋体","shuidrinking";
+	counter-reset: filedSets 0 stepsCounterSN 0 orderSn 0;
 	letter-spacing: 0.01rem;
 }
 img {
@@ -76,8 +80,8 @@ h1, h2, h3, h4, h5, h6{
 	font-size: 0.16rem;
 	margin: 0.02rem 0;
 	padding: 0.1rem 0;
+	position: relative;
 }
-
 h4{
 	padding-left:0.3rem;
 	/* background-image: url(../image/icons/currentLocation.png);
@@ -100,7 +104,6 @@ h4::before{
 	top: 0;
 	left: 0;
 }
-
 div {
 	font-size: var(--rem-common-font-size);
 	border: 0;
@@ -108,7 +111,7 @@ div {
 	margin:0;
 }
 p{
-	line-height:0.3rem;
+	line-height:var(--content-line-height);
 }
 blockquote{
 	margin : 0.1rem 0;
@@ -132,6 +135,7 @@ blockquote::before{
 a{
 	text-decoration: none;
 	color:#006da3;
+	line-height:0.2rem;
 }
 a:hover {
 	color:#0087c6;
@@ -235,7 +239,6 @@ input:focus{
 } */
 
 input {
-	min-height:0.25rem;
 	padding-left:0.05rem;
 	border:0;
 	border:0.01rem solid #86b7ff;
@@ -262,12 +265,10 @@ input[type="checkbox"], input[type="radio"]{
 	cursor:pointer;
 }
 input[type="text"], input[type="tel"], input[type="number"], input[type="password"], input[type="month"]{
-	min-width:1.5rem;
 	background: #FFFFFF;
 	line-height: 0;
 }
 input[type="date"]{
-	min-width:1.5rem;
 	background: #FFFFFF;
 	height: 0.27rem;
 	line-height:0.27rem;
@@ -336,7 +337,7 @@ textArea{
 }
 pre {
 	font-size:0.12rem;
-	line-height:0.2rem;
+	line-height:var(--content-line-height);
 	font-family: 'Verdana','微软雅黑','宋体';
 	white-space: pre-wrap;
 	word-wrap: break-word;
@@ -415,7 +416,7 @@ pre {
 .subContentDiv{
 	text-align:left;
 	border:0;
-	line-height:0.3rem;
+	line-height:var(--content-line-height);
 	padding: 0.05rem;
 	margin: 0 0.05rem 0 0.3rem;
 }
@@ -430,12 +431,28 @@ pre {
 }
 .contentDiv{
 	text-align:left;
-	line-height:0.3rem;
+	line-height:var(--content-line-height);
 	padding:0.1rem;
 	margin:0.1rem;
 }
+.noborder-content-div{
+	text-align:left;
+	border-radius:0.06rem;
+	border-top-left-radius:0;
+	line-height:var(--content-line-height);
+	width: calc(100% - 0.22rem);
+	padding:0.05rem;
+	margin:0.05rem;
+}
+
+.flex-box{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(100% - 0.5rem);
+}
 .addBorder{
-	border:0.01rem solid #e5e5e5;
+	border:0.01rem solid #d1e2ff;
 	border-radius:0.06rem;
 }
 table{
@@ -443,31 +460,36 @@ table{
 	border-collapse:collapse;/*collapse时,radius不生效 separate时圆角生效 相当于cellspacing=0*/
 	border-spacing:0;
 	margin:0.05rem 0 0.05rem 0.05rem;
-	border:0.01rem solid #e5e5e5;
+	border:0.01rem solid #d1e2ff;
 }
 thead tr
 {
-	border-bottom:0.01rem solid #e5e5e5;
+	font-size: 0.18rem;
+	border-bottom:0.01rem solid #d1e2ff;
 }
 thead tr th {
 	height:0.4rem;
 	vertical-align:middle;
-	font-size: 0.16rem;
+	font-size: 0.18rem;
   	font-weight:bold;
 	text-align:center;
+	border-right:0.01rem solid #d1e2ff;
 	padding:0 0.05rem;
 }
 tbody tr {
-	border-bottom:0.01rem dashed #e5e5e5;
+	font-size: 0.18rem;
+	border-bottom:0.01rem dashed #d1e2ff;
 }
 tbody tr td {
 	height:0.4rem;
 	vertical-align:middle;
+	font-size: 0.18rem;
+	border-right:0.01rem dashed #d1e2ff;
 	padding:0 0.05rem;
-	line-height:0.3rem;
+	line-height:var(--content-line-height);
 }
 tbody tr:hover td {
-	background-color: #fffee4;
+	background-color: #fffaf0;
 }
 .across tr:nth-child(2n){
 	background-color:#fafafa;
@@ -583,7 +605,7 @@ tbody tr:hover td {
 	word-wrap : break-word ;
 	border-bottom:0.01rem solid #d3d3d3;
 	text-indent :0.32rem;
-	line-height:0.3rem;
+	line-height:var(--content-line-height);
 }
 .dialogBottom {
 	text-align: center;
@@ -682,7 +704,7 @@ tbody tr:hover td {
 	display:inline-block;
 	min-height:2rem;
 	line-height:0.2rem;
-	width:2rem;
+	width:3rem;
 	padding:0.1rem;
 	margin:0.2rem 0.5rem;
 	-moz-box-shadow:0.05rem 0.05rem 0.07rem #8c8c8c;
@@ -885,6 +907,8 @@ details[open]::details-content {
 	font-weight:bold;
 	overflow: hidden;
 	border-radius: 0.04rem;
+	min-height: 0.3rem;
+	margin: 0.2rem 0;
 	color:#00157e;
 }
 .summary::before{

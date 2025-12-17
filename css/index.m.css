@@ -3,7 +3,9 @@ html body{
 	height:100%;
 	border:0;
 	margin:0;
-	font-size:16px;
+}
+body{
+	font-size:0.3rem;
 }
 #contextDiv{
 	font-size:0.12rem;
@@ -29,34 +31,30 @@ html body{
 	position:relative;
 }
 #headDiv{
-	position: fixed;
 	z-index:100;
 	background-color: #ffffff;
-	height: 0.5rem;
-	width:3.5rem;
+	width: 100%;
+	height: var(--title-div-height);
+	line-height:var(--title-div-height);
 	border: 0;
+	border-bottom:0.01rem solid #e5e5e5;
 	display: flex;
 	align-items: center;
-	gap: 0.1rem;
-	/* border-bottom:1px solid #5d7e8d; */
-	/* background: linear-gradient(360deg, #90c8e9, #dce7fa 100%); *//* 标准的语法 90度表示从左到右*/
+	justify-content: center;
 }
 #logo{
-	height: 0.3rem;
-	width: 0.3rem;
-	margin-left:0.1rem;
+	height: 0.4rem;
+	width: 1rem;
+	margin: 0.05rem 0.1rem 0 0.1rem;
+	float: left;
 	background: url(../image/icons/logo.png) no-repeat;
 	background-size:contain;
 	background-position: center;
-	border-radius: 0.05rem;
-	box-shadow: 0.01rem 0.01rem 0.05rem #c7c7c7;
+	display:inline-block;
 }
 #logoText1{
 	display: inline-block;
-	font-size: 0.25rem;
-	height:0.5rem;
-	display: flex;
-	align-items: center;
+	font-size: 0.4rem;
 	/* text-shadow:0.01rem 0.01rem 0.04rem #ddefff; */
 }
 #logoText2{
@@ -74,7 +72,6 @@ html body{
 	border:0;
 	display:block;
 	float:left;
-	width:3.5rem;
 	height: 100%;
 	background-attachment:fixed;
 	background-position:left bottom;
@@ -84,6 +81,9 @@ html body{
 	overflow:auto;
 	transition: left 0.2s linear 0s;
 	/* background: linear-gradient(90deg, #f1faff, #cee8f8 50%); *//* 标准的语法 90度表示从左到右*/
+	z-index:998;
+	background:#ffffff;
+	width:50%;
 }
 .menuDivHidden{
 	border:0;
@@ -95,11 +95,11 @@ html body{
 	background-position:left bottom;
 	border-right:1px solid #5d7e8d;
 	position:fixed;
-	left:-4.2rem;
+	left:-4rem;
 	transition: left 0.2s linear 0s;
 }
 .menuContent{
-	padding: 0.45rem 0.1rem 0.1rem 0.1rem;
+	padding: 0.1rem 0.1rem 0.1rem 0.1rem;
 }
 .workAreaDivMin {
 	width: calc(100% - 3.8rem);
@@ -128,29 +128,20 @@ html body{
 	display: block;
 	width: 0.1rem;
 	position: absolute;
-	top: calc(50% - 1rem);
-	left: 3.5rem;
+	bottom: 0.2rem;
+	left: calc(50% - 1.2rem);
 	z-index: 999;
 	cursor: pointer;
 	text-align: center;
 	height: 1rem;
 	line-height: 1.05rem;
-	border: 1px solid #878787;
-	border-top-right-radius: 0.1rem;
-	border-bottom-right-radius: 0.1rem;
 	background-position: center center;
 	background-size: auto;
 	transition: all 0.2s linear 0s;
-	opacity: 0.3;
-}
-.menuDisplayed:hover{
-	opacity: 0.8;
-}
-.menuHidden:hover{
-	opacity: 0.8;
+	opacity: 1;
 }
 .menuHidden{
-	left: 0;
+	left: 0.1rem;
 }
 .currentPositionDiv{
 	height: 0.2rem;
