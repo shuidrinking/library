@@ -272,12 +272,8 @@ Client.windowScrollTo = function(elementOrId, _containner=document.getElementByI
 	else{
 		return;
 	}
-	let x = element.x ? element.x : element.offsetLeft;
-	let y = element.y ? element.y : element.offsetTop;
-	if(y>200){
-		y -=200;
-	}
-	_containner.scrollTo({left: x, top: y, behavior: "smooth"});
+	let bound=element.getBoundingClientRect();
+	_containner.scrollTo({left: bound.x, top: bound.y, behavior: "smooth"});
 }
 /**
  * 拖动某元素
